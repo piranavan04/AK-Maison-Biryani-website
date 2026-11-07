@@ -141,8 +141,8 @@ export function Dishes() {
 
   return (
     <section
-      id="menu"
-      aria-labelledby="menu-title"
+      id="signature"
+      aria-labelledby="signature-title"
       className="relative overflow-hidden bg-burgundy py-24 text-cream sm:py-32"
     >
       <div
@@ -155,7 +155,7 @@ export function Dishes() {
           <Eyebrow>From Our Kitchen</Eyebrow>
           <Ornament className="mx-auto mt-4 justify-center" />
           <h2
-            id="menu-title"
+            id="signature-title"
             className="mt-6 font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl"
           >
             Our Signature <span className="italic text-saffron">Flavours</span>

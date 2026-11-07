@@ -39,7 +39,7 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-500 ${
         solid
-          ? 'bg-wine/[0.97] shadow-[0_1px_0_rgb(217_164_65/0.35)]'
+          ? 'bg-wine shadow-[0_1px_0_rgb(217_164_65/0.35)]'
           : 'bg-transparent'
       }`}
     >

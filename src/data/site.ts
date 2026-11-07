@@ -28,12 +28,12 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '#home', sections: ['home'] },
   { label: 'Our Story', href: '#story', sections: ['story'] },
-  { label: 'Menu', href: '#menu', sections: ['menu', 'why'] },
+  { label: 'Menu', href: '#menu', sections: ['signature', 'menu', 'why'] },
   { label: 'Gallery', href: '#gallery', sections: ['gallery'] },
   { label: 'Contact', href: '#contact', sections: ['visit', 'contact'] },
 ]
 
-export const SECTION_IDS = ['home', 'story', 'menu', 'why', 'gallery', 'visit', 'contact']
+export const SECTION_IDS = ['home', 'story', 'signature', 'menu', 'why', 'gallery', 'visit', 'contact']
 
 export interface SocialLink {
   label: string

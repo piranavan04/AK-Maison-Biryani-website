@@ -10,8 +10,11 @@ images/
   south-indian/  masala-dosa, idli-sambar, south-indian-thali
   non-veg/       tandoori-chicken, chicken-65, chicken-curry, mutton-curry
   gallery/       12 gallery photographs (none repeated elsewhere)
+  menu/          36 full-menu photographs in biryani/, chicken/, mutton/, south-indian/,
+                 vegetarian/, starters/ and beverages/ (one per dish, none repeated)
 ```
 
-Paths, alt text, dimensions and focal points live in `src/data/images.ts`.
+Paths, alt text, dimensions and focal points live in `src/data/images.ts`; menu dishes and
+their photos live in `src/data/menu.ts`.
 To swap a photo, add WebP files at the same three widths and update that entry.
 Sources and licences: `CREDITS.md`. The brand logo stays in `/public/brand/`.

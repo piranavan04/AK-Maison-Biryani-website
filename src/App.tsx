@@ -1,5 +1,6 @@
 import { Contact } from './components/Contact'
 import { Dishes } from './components/Dishes'
+import { MenuSection } from './components/menu/MenuSection'
 import { Gallery } from './components/Gallery'
 import { Hero } from './components/Hero'
 import { Navbar } from './components/Navbar'
@@ -21,6 +22,7 @@ export default function App() {
         <Hero />
         <Story />
         <Dishes />
+        <MenuSection />
         <WhyChoose />
         <Gallery />
         <Visit />

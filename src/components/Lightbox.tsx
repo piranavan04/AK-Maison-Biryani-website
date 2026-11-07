@@ -1,11 +1,18 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
-import type { GalleryItem } from '../data/gallery'
-import { photoProps } from '../data/images'
+import { photoProps, type Photo } from '../data/images'
 import { FoodImage } from './FoodImage'
 
+export interface LightboxItem {
+  id: string
+  photo: Photo
+  caption: string
+  /** Optional line shown under the caption (e.g. a dish description). */
+  detail?: string
+}
+
 interface LightboxProps {
-  items: GalleryItem[]
+  items: LightboxItem[]
   index: number
   onClose: () => void
   onChange: (index: number) => void
@@ -56,7 +63,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
           ref={closeRef}
           type="button"
           onClick={onClose}
-          aria-label="Close gallery"
+          aria-label="Close photo"
           className="grid size-11 place-items-center rounded-full border border-gold/60 text-cream transition-colors hover:bg-gold/20"
         >
           <X className="size-5" />
@@ -89,8 +96,9 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
             sizes="(min-width: 1024px) 64rem, 100vw"
             className="h-auto max-h-[68dvh] w-auto max-w-full border border-gold/50 object-contain"
           />
-          <figcaption className="mt-5 text-center font-display text-2xl italic text-saffron">
-            {item.caption}
+          <figcaption className="mt-5 max-w-xl px-2 text-center">
+            <span className="block font-display text-2xl italic text-saffron">{item.caption}</span>
+            {item.detail && <span className="mt-2 block text-sm leading-relaxed text-cream/75">{item.detail}</span>}
           </figcaption>
         </figure>
 
