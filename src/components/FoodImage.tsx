@@ -7,13 +7,33 @@ interface FoodImageProps {
   label: string
   className?: string
   eager?: boolean
+  /** Load now at normal priority (e.g. slider cards that are about to slide into view). */
+  preload?: boolean
   sizes?: string
+  /** Optional responsive sources and intrinsic size (prevents layout shift). */
+  srcSet?: string
+  width?: number
+  height?: number
+  /** Optional CSS object-position focal point. */
+  position?: string
 }
 
 /**
  * Photograph with a graceful brand-coloured fallback, so a missing file never shows a broken icon.
  */
-export function FoodImage({ src, alt, label, className = '', eager = false, sizes }: FoodImageProps) {
+export function FoodImage({
+  src,
+  alt,
+  label,
+  className = '',
+  eager = false,
+  preload = false,
+  sizes,
+  srcSet,
+  width,
+  height,
+  position,
+}: FoodImageProps) {
   const [failed, setFailed] = useState(false)
 
   if (failed) {
@@ -34,9 +54,13 @@ export function FoodImage({ src, alt, label, className = '', eager = false, size
   return (
     <img
       src={src}
+      srcSet={srcSet}
       alt={alt}
       sizes={sizes}
-      loading={eager ? 'eager' : 'lazy'}
+      width={width}
+      height={height}
+      style={position ? { objectPosition: position } : undefined}
+      loading={eager || preload ? 'eager' : 'lazy'}
       decoding="async"
       fetchPriority={eager ? 'high' : 'auto'}
       onError={() => setFailed(true)}

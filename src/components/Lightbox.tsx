@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import type { GalleryItem } from '../data/gallery'
+import { photoProps } from '../data/images'
 import { FoodImage } from './FoodImage'
 
 interface LightboxProps {
@@ -82,11 +83,11 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
           style={{ '--d': '0ms' } as React.CSSProperties}
         >
           <FoodImage
-            src={item.src}
-            alt={item.alt}
+            {...photoProps(item.photo)}
             label={item.caption}
             eager
-            className="max-h-[68dvh] min-h-[16rem] w-auto min-w-[16rem] border border-gold/50 object-contain sm:min-h-[22rem] sm:min-w-[32rem]"
+            sizes="(min-width: 1024px) 64rem, 100vw"
+            className="h-auto max-h-[68dvh] w-auto max-w-full border border-gold/50 object-contain"
           />
           <figcaption className="mt-5 text-center font-display text-2xl italic text-saffron">
             {item.caption}

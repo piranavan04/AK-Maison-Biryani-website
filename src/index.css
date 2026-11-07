@@ -58,6 +58,15 @@ img {
   background-size: 72px 72px;
 }
 
+/* Signature-dish slider */
+/* On mouse/touchpad devices the row moves only by autoplay, arrows, dots or a deliberate
+   sideways swipe (handled in Dishes.tsx), so vertical page scrolling is never captured. */
+@media (hover: hover) and (pointer: fine) {
+  .dish-track {
+    overflow-x: hidden;
+  }
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
@@ -66,7 +75,6 @@ img {
     opacity 0.9s var(--ease-royal),
     transform 0.9s var(--ease-royal);
   transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;

@@ -1,63 +1,27 @@
-import { IMAGES } from './images'
+import { IMAGES, type Photo } from './images'
 
 export interface GalleryItem {
   id: string
-  src: string
-  alt: string
+  photo: Photo
   caption: string
-  /** Tailwind grid placement for the editorial layout (md and up). */
+  /** Grid placement. Mobile is a 2-column grid; md and up is a 4-column editorial grid. */
   span: string
 }
 
-// Layout is a 4-column asymmetric grid on desktop; items stack in two columns on mobile.
+// Twelve photographs, none repeated elsewhere on the page.
+// Spans are balanced so both the 2-column (mobile) and 4-column (tablet/desktop) grids fill
+// without gaps (grid-flow-dense handles any leftover cells).
 export const GALLERY: GalleryItem[] = [
-  {
-    id: 'g-chicken-biryani',
-    src: IMAGES.chickenBiryani,
-    alt: 'Chicken biryani served in a copper vessel',
-    caption: 'Chicken Biryani',
-    span: 'col-span-2 row-span-2 md:col-span-2 md:row-span-2',
-  },
-  {
-    id: 'g-dosa',
-    src: IMAGES.dosa,
-    alt: 'Golden South Indian dosa with chutneys',
-    caption: 'Dosa',
-    span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1',
-  },
-  {
-    id: 'g-spices',
-    src: IMAGES.spices,
-    alt: 'Fresh herbs and whole spices',
-    caption: 'Herbs and Spices',
-    span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-2',
-  },
-  {
-    id: 'g-curries',
-    src: IMAGES.curries,
-    alt: 'Rich Indian curries in serving bowls',
-    caption: 'Indian Curries',
-    span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1',
-  },
-  {
-    id: 'g-mutton-biryani',
-    src: IMAGES.muttonBiryani,
-    alt: 'Mutton biryani with aromatic rice',
-    caption: 'Mutton Biryani',
-    span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1',
-  },
-  {
-    id: 'g-meal',
-    src: IMAGES.meal,
-    alt: 'Traditional South Indian meal on a banana leaf',
-    caption: 'South Indian Meals',
-    span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1',
-  },
-  {
-    id: 'g-kitchen',
-    src: IMAGES.kitchen,
-    alt: 'Traditional Indian food preparation',
-    caption: 'From Our Kitchen',
-    span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1',
-  },
+  { id: 'g-ghee-roast', photo: IMAGES.gGheeRoast, caption: 'Ghee Roast Dosa', span: 'col-span-2 row-span-2' },
+  { id: 'g-spices', photo: IMAGES.gSpices, caption: 'Whole Spices', span: 'col-span-1 row-span-1' },
+  { id: 'g-mutton-spread', photo: IMAGES.gMuttonSpread, caption: 'Mutton Curry Feast', span: 'col-span-1 row-span-2' },
+  { id: 'g-cone-dosa', photo: IMAGES.gConeDosa, caption: 'Cone Dosa', span: 'col-span-1 row-span-1' },
+  { id: 'g-grill', photo: IMAGES.gGrill, caption: 'From the Tandoor', span: 'col-span-2 row-span-1' },
+  { id: 'g-pepper-fry', photo: IMAGES.gPepperFry, caption: 'Mutton Pepper Fry', span: 'col-span-1 row-span-1' },
+  { id: 'g-banana-leaf', photo: IMAGES.gBananaLeaf, caption: 'Banana Leaf Meal', span: 'col-span-1 row-span-2' },
+  { id: 'g-karahi', photo: IMAGES.gKarahi, caption: 'Brass Karahi Curry', span: 'col-span-1 row-span-1' },
+  { id: 'g-idli-coffee', photo: IMAGES.gIdliCoffee, caption: 'Idli and Filter Coffee', span: 'col-span-2 row-span-1' },
+  { id: 'g-tawa', photo: IMAGES.gTawa, caption: 'Fresh off the Tawa', span: 'col-span-1 row-span-1' },
+  { id: 'g-chicken-fry', photo: IMAGES.gChickenFry, caption: 'Chicken Chilli Fry', span: 'col-span-1 row-span-1' },
+  { id: 'g-skewers', photo: IMAGES.gSkewers, caption: 'Over the Coals', span: 'col-span-2 row-span-1' },
 ]

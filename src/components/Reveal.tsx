@@ -5,10 +5,12 @@ interface RevealProps {
   as?: ElementType
   delay?: number
   className?: string
+  /** Share of the element that must be visible before it reveals. */
+  threshold?: number
 }
 
 /** Fades and lifts its children into view once, when scrolled into the viewport. */
-export function Reveal({ children, as: Tag = 'div', delay = 0, className = '' }: RevealProps) {
+export function Reveal({ children, as: Tag = 'div', delay = 0, className = '', threshold = 0.12 }: RevealProps) {
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -21,11 +23,11 @@ export function Reveal({ children, as: Tag = 'div', delay = 0, className = '' }:
           observer.disconnect()
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
+      { threshold, rootMargin: '0px 0px -6% 0px' },
     )
     observer.observe(node)
     return () => observer.disconnect()
-  }, [])
+  }, [threshold])
 
   return (
     <Tag

@@ -1,55 +1,89 @@
-import { IMAGES } from './images'
+import { IMAGES, type Photo } from './images'
+
+export type DishCategory = 'Biryani' | 'South Indian' | 'Non-Veg Specials'
 
 export interface Dish {
   id: string
   name: string
+  category: DishCategory
   description: string
-  image: string
+  photo: Photo
   /** Optional. Leave undefined until prices are confirmed; the card hides it. */
   price?: string
 }
 
+// Every dish has its own photograph; none of these are reused in the hero, story or gallery.
 export const DISHES: Dish[] = [
   {
-    id: 'chicken-biryani',
-    name: 'Authentic Chicken Biryani',
+    id: 'chicken-dum-biryani',
+    name: 'Chicken Dum Biryani',
+    category: 'Biryani',
     description:
-      'Fragrant long-grain rice layered with tender chicken and slow-infused spices, served in the traditional way.',
-    image: IMAGES.chickenBiryani,
+      'Long-grain basmati and spiced chicken sealed in the pot and slow-cooked on dum, so every grain carries the aroma.',
+    photo: IMAGES.chickenDum,
   },
   {
     id: 'mutton-biryani',
     name: 'Mutton Biryani',
+    category: 'Biryani',
     description:
-      'Rich, deeply spiced mutton folded through aromatic rice. A dish made for sharing and savouring.',
-    image: IMAGES.muttonBiryani,
+      'Tender bone-in mutton folded through saffron rice, mint and crisp onions. A dish made for sharing and savouring.',
+    photo: IMAGES.muttonBiryani,
   },
   {
-    id: 'dosa',
-    name: 'South Indian Dosa',
+    id: 'masala-dosa',
+    name: 'Crispy Masala Dosa',
+    category: 'South Indian',
     description:
-      'Golden, crisp-edged dosa rolled around a warm filling, served with chutneys and sambar.',
-    image: IMAGES.dosa,
+      'A golden, paper-crisp dosa wrapped around spiced potato masala, served with sambar and fresh chutneys.',
+    photo: IMAGES.masalaDosa,
+  },
+  {
+    id: 'idli-sambar',
+    name: 'Idli and Sambar',
+    category: 'South Indian',
+    description:
+      'Soft, steamed rice cakes with coconut chutney and a warm, tangy lentil sambar. A South Indian morning classic.',
+    photo: IMAGES.idli,
   },
   {
     id: 'tandoori-chicken',
     name: 'Tandoori Chicken',
+    category: 'Non-Veg Specials',
     description:
-      'Marinated in bold spices and fired until smoky, charred at the edges and juicy within.',
-    image: IMAGES.tandoori,
+      'Marinated in yoghurt and bold spices, then fired until smoky, charred at the edges and juicy within.',
+    photo: IMAGES.tandoori,
   },
   {
-    id: 'south-indian-meals',
-    name: 'Traditional South Indian Meals',
+    id: 'chicken-65',
+    name: 'Chicken 65',
+    category: 'Non-Veg Specials',
     description:
-      'A generous banana-leaf spread of rice, curries and accompaniments, the way a South Indian table is meant to be enjoyed.',
-    image: IMAGES.meal,
+      'Fiery, crisp-fried chicken tossed with curry leaves, green chilli and garlic. The perfect starter.',
+    photo: IMAGES.chicken65,
   },
   {
-    id: 'indian-curries',
-    name: 'Signature Indian Curries',
+    id: 'chicken-curry',
+    name: 'Traditional Chicken Curry',
+    category: 'Non-Veg Specials',
     description:
-      'Slow-simmered gravies with layered spice and depth, made to be mopped up with every last bite.',
-    image: IMAGES.curries,
+      'A home-style gravy of roasted spices and onions, simmered slowly and made to be mopped up to the last drop.',
+    photo: IMAGES.chickenCurry,
+  },
+  {
+    id: 'mutton-curry',
+    name: 'Mutton Curry',
+    category: 'Non-Veg Specials',
+    description:
+      'Slow-cooked mutton in a deep, peppery masala, rich with whole spices and finished with fresh coriander.',
+    photo: IMAGES.muttonCurry,
+  },
+  {
+    id: 'south-indian-thali',
+    name: 'South Indian Thali',
+    category: 'South Indian',
+    description:
+      'A generous spread of rice, curries, poriyal and accompaniments, the way a South Indian table is meant to be enjoyed.',
+    photo: IMAGES.thali,
   },
 ]

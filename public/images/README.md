@@ -1,18 +1,17 @@
 # Food photography
 
-Drop your photographs here using these exact file names (JPG, ideally 1600px wide or more).
-Any missing file shows an elegant burgundy placeholder instead, so the site never looks broken.
-To use different names or formats, edit `src/data/images.ts`.
+All photographs are local, responsive WebP files (480 / 960 / 1440 px wide):
 
-| File                   | Used for                                    |
-| ---------------------- | ------------------------------------------- |
-| hero-biryani.jpg       | Hero arch (portrait crop works best, 4:5)   |
-| story-copper-pot.jpg   | Our Story split layout (portrait, 4:5)      |
-| chicken-biryani.jpg    | Signature card + gallery                    |
-| mutton-biryani.jpg     | Signature card + gallery                    |
-| dosa.jpg               | Signature card + gallery                    |
-| tandoori-chicken.jpg   | Signature card                              |
-| south-indian-meal.jpg  | Signature card + gallery (banana-leaf meal) |
-| indian-curries.jpg     | Signature card + gallery                    |
-| spices.jpg             | Gallery (fresh herbs and spices)            |
-| kitchen-preparation.jpg| Gallery (traditional food preparation)      |
+```
+images/
+  hero/          hero-chicken-biryani          (hero arch)
+  restaurant/    story-copper-feast            (Our Story)
+  biryani/       chicken-dum-biryani, mutton-biryani
+  south-indian/  masala-dosa, idli-sambar, south-indian-thali
+  non-veg/       tandoori-chicken, chicken-65, chicken-curry, mutton-curry
+  gallery/       12 gallery photographs (none repeated elsewhere)
+```
+
+Paths, alt text, dimensions and focal points live in `src/data/images.ts`.
+To swap a photo, add WebP files at the same three widths and update that entry.
+Sources and licences: `CREDITS.md`. The brand logo stays in `/public/brand/`.

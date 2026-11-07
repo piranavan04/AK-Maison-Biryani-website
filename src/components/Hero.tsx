@@ -1,5 +1,5 @@
 import { ArrowRight, MapPin } from 'lucide-react'
-import { IMAGES } from '../data/images'
+import { IMAGES, photoProps } from '../data/images'
 import { SITE } from '../data/site'
 import { Eyebrow, Ornament } from './Ornament'
 import { FoodImage } from './FoodImage'
@@ -21,17 +21,17 @@ export function Hero() {
         className="pattern-gold absolute inset-0 -z-10 opacity-[0.07] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
       />
 
-      <div className="mx-auto grid min-h-svh max-w-7xl items-center gap-10 px-5 pb-16 pt-24 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pb-20 lg:pt-32">
+      <div className="mx-auto grid min-h-svh max-w-7xl items-center gap-9 px-5 pb-14 pt-24 sm:gap-12 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pb-20 lg:pt-32">
         {/* Copy */}
         <div className="order-2 lg:order-1">
           <div className="hero-rise" style={{ '--d': '100ms' } as React.CSSProperties}>
             <Eyebrow>Authentic South Indian Cuisine</Eyebrow>
-            <Ornament className="mt-4" />
+            <Ornament className="mt-4 max-sm:hidden" />
           </div>
 
           <h1
             id="hero-title"
-            className="hero-rise mt-6 font-display text-[2.9rem] font-semibold leading-[1.02] tracking-tight text-cream sm:text-6xl lg:text-[4.6rem] xl:text-[5.2rem]"
+            className="hero-rise mt-4 font-display text-[2.55rem] font-semibold leading-[1.04] sm:mt-6 tracking-tight text-cream sm:text-6xl lg:text-[4.6rem] xl:text-[5.2rem]"
             style={{ '--d': '250ms' } as React.CSSProperties}
           >
             Where Royal Flavours Meet{' '}
@@ -39,7 +39,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="hero-rise mt-6 max-w-xl text-base leading-relaxed text-cream/80 sm:text-lg"
+            className="hero-rise mt-5 max-w-xl text-[0.97rem] leading-relaxed text-cream/80 sm:mt-6 sm:text-lg"
             style={{ '--d': '420ms' } as React.CSSProperties}
           >
             Discover the rich aromas, authentic spices, and unforgettable flavours of South Indian
@@ -47,19 +47,19 @@ export function Hero() {
           </p>
 
           <div
-            className="hero-rise mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
+            className="hero-rise mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4"
             style={{ '--d': '560ms' } as React.CSSProperties}
           >
             <a
               href="#menu"
-              className="btn-gold group inline-flex items-center justify-center gap-3 rounded-full bg-saffron px-8 py-4 text-[0.82rem] font-bold uppercase tracking-[0.2em] text-wine transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold"
+              className="btn-gold group inline-flex items-center justify-center gap-3 rounded-full bg-saffron px-8 py-3.5 text-[0.8rem] sm:py-4 sm:text-[0.82rem] font-bold uppercase tracking-[0.2em] text-wine transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold"
             >
               Explore Our Menu
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="#visit"
-              className="group inline-flex items-center justify-center gap-3 rounded-full border border-gold/70 px-8 py-4 text-[0.82rem] font-bold uppercase tracking-[0.2em] text-cream transition-colors duration-300 hover:border-saffron hover:bg-saffron/10 hover:text-saffron"
+              className="group inline-flex items-center justify-center gap-3 rounded-full border border-gold/70 px-8 py-3.5 text-[0.8rem] sm:py-4 sm:text-[0.82rem] font-bold uppercase tracking-[0.2em] text-cream transition-colors duration-300 hover:border-saffron hover:bg-saffron/10 hover:text-saffron"
             >
               <MapPin className="size-4" />
               Visit Our Restaurant
@@ -68,20 +68,19 @@ export function Hero() {
         </div>
 
         {/* Arch photograph */}
-        <div className="order-1 mx-auto w-full max-w-[19rem] sm:max-w-[26rem] lg:order-2 lg:max-w-[30rem] lg:justify-self-end">
+        <div className="order-1 mx-auto w-full max-w-[16.5rem] sm:max-w-[26rem] lg:order-2 lg:max-w-[30rem] lg:justify-self-end">
           <div className="hero-arch-in relative">
             {/* offset gold outline */}
             <div
               aria-hidden="true"
               className="absolute inset-0 translate-x-3 translate-y-3 rounded-t-[999px] border border-gold/60 sm:translate-x-4 sm:translate-y-4"
             />
-            <div className="relative aspect-square overflow-hidden rounded-t-[999px] sm:aspect-[4/5] border-2 border-gold bg-burgundy shadow-[0_30px_80px_-30px_rgb(0_0_0/0.7)]">
+            <div className="relative aspect-[10/11] overflow-hidden rounded-t-[999px] sm:aspect-[4/5] border-2 border-gold bg-burgundy shadow-[0_30px_80px_-30px_rgb(0_0_0/0.7)]">
               <FoodImage
-                src={IMAGES.hero}
-                alt="Copper vessel of aromatic chicken biryani"
+                {...photoProps(IMAGES.hero)}
                 label="Chicken Biryani"
                 eager
-                sizes="(min-width: 1024px) 30rem, 90vw"
+                sizes="(min-width: 1024px) 30rem, (min-width: 640px) 26rem, 90vw"
                 className="size-full"
               />
               <div
@@ -91,14 +90,14 @@ export function Hero() {
             </div>
 
             {/* Grand opening seal */}
-            <div className="absolute -bottom-7 -left-3 grid size-28 place-items-center rounded-full border border-gold bg-burgundy text-center shadow-[0_18px_40px_-14px_rgb(0_0_0/0.65)] sm:-left-8 sm:size-36 sm:-bottom-6">
+            <div className="absolute -bottom-7 -left-4 grid size-[7.6rem] place-items-center rounded-full border border-gold bg-burgundy text-center shadow-[0_18px_40px_-14px_rgb(0_0_0/0.65)] sm:-left-8 sm:size-36 sm:-bottom-6">
               <div className="absolute inset-1.5 rounded-full border border-gold/50" aria-hidden="true" />
               <div className="relative">
-                <p className="text-[0.55rem] font-bold uppercase tracking-[0.28em] text-gold">Grand Opening</p>
+                <p className="text-[0.5rem] font-bold uppercase tracking-[0.16em] text-gold sm:text-[0.55rem] sm:tracking-[0.24em]">Grand Opening</p>
                 <p className="mt-1 font-display text-2xl font-bold leading-none text-saffron sm:text-[1.7rem]">
                   Nov 11
                 </p>
-                <p className="mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-cream/80">
+                <p className="mt-1 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-cream/80 sm:tracking-[0.22em]">
                   2026 · {SITE.grandOpening.timeLabel}
                 </p>
               </div>

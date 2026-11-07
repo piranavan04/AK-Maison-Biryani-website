@@ -37,9 +37,9 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-500 ${
         solid
-          ? 'bg-wine/95 shadow-[0_1px_0_rgb(217_164_65/0.35)] backdrop-blur-md'
+          ? 'bg-wine/[0.97] shadow-[0_1px_0_rgb(217_164_65/0.35)]'
           : 'bg-transparent'
       }`}
     >
@@ -78,7 +78,7 @@ export function Navbar() {
             className="btn-gold hidden items-center gap-2 rounded-full bg-saffron px-6 py-2.5 text-[0.8rem] font-bold uppercase tracking-[0.18em] text-wine transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold sm:inline-flex"
           >
             <Phone className="size-4" aria-hidden="true" />
-            514-858-0505
+            Order Now
           </a>
           <button
             type="button"
@@ -101,7 +101,7 @@ export function Navbar() {
         }`}
       >
         <div className="min-h-0">
-          <ul className="flex h-[calc(100dvh-4.5rem)] flex-col justify-center gap-1 px-8 pb-16">
+          <ul className="flex h-[calc(100dvh-5rem)] flex-col justify-center gap-1 px-8 pb-16">
             {NAV_ITEMS.map((item, i) => {
               const current = item.sections.includes(activeSection)
               return (
@@ -133,7 +133,7 @@ export function Navbar() {
             >
               <a
                 href={SITE.phoneHref}
-                className="btn-gold flex items-center justify-center gap-2 rounded-full bg-saffron px-6 py-4 text-sm font-bold uppercase tracking-[0.2em] text-wine"
+                className="btn-gold flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-saffron px-5 py-4 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-wine"
               >
                 <Phone className="size-4" aria-hidden="true" />
                 Order Now · {SITE.phoneDisplay}

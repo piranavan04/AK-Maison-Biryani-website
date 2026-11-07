@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { IMAGES } from '../data/images'
+import { IMAGES, photoProps } from '../data/images'
 import { Eyebrow, Ornament } from './Ornament'
 import { FoodImage } from './FoodImage'
 import { Reveal } from './Reveal'
@@ -9,7 +9,7 @@ export function Story() {
     <section
       id="story"
       aria-labelledby="story-title"
-      className="relative overflow-hidden bg-cream py-24 sm:py-32"
+      className="relative overflow-hidden bg-cream py-20 sm:py-32"
     >
       <div
         aria-hidden="true"
@@ -29,8 +29,7 @@ export function Story() {
             />
             <div className="group relative aspect-[4/5] overflow-hidden bg-burgundy">
               <FoodImage
-                src={IMAGES.story}
-                alt="Biryani and curries in traditional copper vessels"
+                {...photoProps(IMAGES.story)}
                 label="Served with Royalty"
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 className="size-full transition-transform duration-[1400ms] ease-[var(--ease-royal)] group-hover:scale-105"

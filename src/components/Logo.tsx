@@ -1,34 +1,22 @@
 interface LogoProps {
-  tone?: 'light' | 'dark'
+  /** Size classes. Height drives the size; width follows the logo's aspect ratio. */
   className?: string
 }
 
 /**
- * Official AK chef-hat monogram (public/brand/logo.png, background made transparent
- * from the supplied logo) beside the "Maison Biryani / Cuisine Indienne" wordmark.
+ * Official AK Maison Biryani logo (public/brand/logo-full.webp), recoloured for the dark
+ * burgundy theme: gold monogram, saffron script, cream wordmark, gold tagline.
+ * Source file with the original black background: public/brand/logo-full-original.jpg
  */
-export function Logo({ tone = 'light', className = '' }: LogoProps) {
-  const main = tone === 'light' ? 'text-cream' : 'text-burgundy'
+export function Logo({ className = 'h-12 sm:h-14' }: LogoProps) {
   return (
-    <span className={`inline-flex items-center gap-3 ${className}`}>
-      <img
-        src="/brand/logo.png"
-        alt=""
-        width={118}
-        height={151}
-        decoding="async"
-        className="h-12 w-auto shrink-0 select-none sm:h-14"
-      />
-      <span className="flex flex-col leading-none">
-        <span className="flex items-baseline gap-1.5">
-          <span className="font-script text-2xl text-saffron">Maison</span>
-          <span className={`font-display text-2xl font-bold ${main}`}>Biryani</span>
-        </span>
-        <span className="mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.38em] text-gold">
-          Cuisine Indienne
-        </span>
-      </span>
-      <span className="sr-only">AK Maison Biryani</span>
-    </span>
+    <img
+      src="/brand/logo-full.webp"
+      alt="AK Maison Biryani, Cuisine Indienne"
+      width={720}
+      height={167}
+      decoding="async"
+      className={`w-auto select-none ${className}`}
+    />
   )
 }

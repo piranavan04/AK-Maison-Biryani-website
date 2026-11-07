@@ -2,6 +2,7 @@ import { Expand } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { GALLERY } from '../data/gallery'
 import { Eyebrow, Ornament } from './Ornament'
+import { photoProps } from '../data/images'
 import { FoodImage } from './FoodImage'
 import { Lightbox } from './Lightbox'
 import { Reveal } from './Reveal'
@@ -14,7 +15,7 @@ export function Gallery() {
     <section
       id="gallery"
       aria-labelledby="gallery-title"
-      className="relative overflow-hidden bg-cream py-24 sm:py-32"
+      className="relative overflow-hidden bg-cream py-20 sm:py-32"
     >
       <div
         aria-hidden="true"
@@ -43,10 +44,13 @@ export function Gallery() {
                   className="group relative block size-full cursor-zoom-in overflow-hidden bg-burgundy"
                 >
                   <FoodImage
-                    src={item.src}
-                    alt={item.alt}
+                    {...photoProps(item.photo)}
                     label={item.caption}
-                    sizes="(min-width: 768px) 25vw, 50vw"
+                    sizes={
+                      item.span.startsWith('col-span-2')
+                        ? '(min-width: 1280px) 40rem, (min-width: 768px) 50vw, 100vw'
+                        : '(min-width: 1280px) 20rem, (min-width: 768px) 25vw, 50vw'
+                    }
                     className="size-full transition-transform duration-[1400ms] ease-[var(--ease-royal)] group-hover:scale-110"
                   />
                   <span

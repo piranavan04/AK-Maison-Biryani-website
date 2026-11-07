@@ -10,6 +10,16 @@
       name="description"
       content="AK Maison Biryani, authentic South Indian cuisine at 431 Boul. Henri Bourassa East, Montreal. Grand Opening November 11, 2026 at 11 AM."
     />
+    <!-- Hero photograph loads first, at the size the screen needs -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/images/hero/hero-chicken-biryani-960.webp"
+      imagesrcset="/images/hero/hero-chicken-biryani-480.webp 480w, /images/hero/hero-chicken-biryani-960.webp 960w, /images/hero/hero-chicken-biryani-1024.webp 1024w"
+      imagesizes="(min-width: 1024px) 30rem, (min-width: 640px) 26rem, 90vw"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

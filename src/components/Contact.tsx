@@ -28,7 +28,7 @@ export function Contact() {
 
         <div className="mt-16 grid gap-12 border-t border-gold/30 pt-14 md:grid-cols-3">
           <div>
-            <Logo />
+            <Logo className="h-16 sm:h-20" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/65">
               {SITE.tagline} in Montreal, Quebec.
             </p>
