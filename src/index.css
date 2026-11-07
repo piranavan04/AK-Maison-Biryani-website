@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-burgundy: #720d12;
+  --color-wine: #4a080b;
+  --color-royal: #a30e14;
+  --color-saffron: #f5c542;
+  --color-gold: #d9a441;
+  --color-cream: #fff5df;
+  --color-charcoal: #241817;
+
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  --ease-royal: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-wine);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-saffron);
+  color: var(--color-wine);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-saffron);
+  outline-offset: 3px;
+}
+
+/* Subtle Indian-inspired lattice. Tile is drawn in warm gold and used at low opacity. */
+.pattern-gold {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72' fill='none' stroke='%23D9A441' stroke-width='1'%3E%3Cpath d='M36 4 68 36 36 68 4 36Z'/%3E%3Cpath d='M36 18 54 36 36 54 18 36Z'/%3E%3Ccircle cx='36' cy='36' r='4'/%3E%3Cpath d='M0 0 4 4M72 0 68 4M0 72 4 68M72 72 68 68'/%3E%3C/svg%3E");
+  background-size: 72px 72px;
+}
+
+.pattern-burgundy {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72' fill='none' stroke='%23720D12' stroke-width='1'%3E%3Cpath d='M36 4 68 36 36 68 4 36Z'/%3E%3Cpath d='M36 18 54 36 36 54 18 36Z'/%3E%3Ccircle cx='36' cy='36' r='4'/%3E%3C/svg%3E");
+  background-size: 72px 72px;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s var(--ease-royal),
+    transform 0.9s var(--ease-royal);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero entrance */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes arch-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-rise {
+  opacity: 0;
+  animation: rise 1s var(--ease-royal) forwards;
+  animation-delay: var(--d, 0ms);
+}
+.hero-arch-in {
+  opacity: 0;
+  animation: arch-in 1.3s var(--ease-royal) 0.2s forwards;
+}
+
+/* Premium button sheen */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / 0.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.8s var(--ease-royal);
+}
+.btn-gold:hover::after {
+  transform: translateX(120%);
+}
+
+/* Animated underline for links */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  transition: background-size 0.45s var(--ease-royal);
+}
+.link-underline:hover,
+.link-underline[aria-current='true'] {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
+  .reveal,
+  .hero-rise,
+  .hero-arch-in {
+    opacity: 1;
+    transform: none;
+  }
+}
