@@ -1,14 +1,20 @@
 import { Menu, Phone, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { NAV_ITEMS, SECTION_IDS, SITE } from '../data/site'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import { useScrolled } from '../hooks/useScrolled'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import { Logo } from './Logo'
 
 export function Navbar() {
   const scrolled = useScrolled()
   const activeSection = useScrollSpy(SECTION_IDS)
   const [open, setOpen] = useState(false)
+  const { t, i18n } = useTranslation()
+  // French labels are longer: the full desktop navigation needs 1280px in French (1024px in English);
+  // below that, French uses the same mobile menu as tablets.
+  const isFr = i18n.resolvedLanguage === 'fr'
 
   // Lock page scroll and close on Escape while the mobile menu is open.
   useEffect(() => {
@@ -27,11 +33,12 @@ export function Navbar() {
 
   // Close the menu if the viewport grows to desktop width.
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1024px)')
+    const mq = window.matchMedia(isFr ? '(min-width: 1280px)' : '(min-width: 1024px)')
     const onChange = () => mq.matches && setOpen(false)
+    onChange()
     mq.addEventListener('change', onChange)
     return () => mq.removeEventListener('change', onChange)
-  }, [])
+  }, [isFr])
 
   const solid = scrolled || open
 
@@ -44,16 +51,18 @@ export function Navbar() {
       }`}
     >
       <nav
-        aria-label="Primary"
+        aria-label={t('common.primaryNav')}
         className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-[padding] duration-500 sm:px-8 ${
           scrolled ? 'py-2.5' : 'py-4 lg:py-5'
         }`}
       >
-        <a href="#home" aria-label="AK Maison Biryani, back to top" onClick={() => setOpen(false)}>
+        <a href="#home" aria-label={t('common.logoHome')} onClick={() => setOpen(false)}>
           <Logo />
         </a>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul
+          className={`hidden items-center ${isFr ? 'gap-9 xl:flex' : 'gap-6 lg:flex xl:gap-9'}`}
+        >
           {NAV_ITEMS.map((item) => {
             const current = item.sections.includes(activeSection)
             return (
@@ -65,7 +74,7 @@ export function Navbar() {
                     current ? 'text-saffron' : 'text-cream/90'
                   }`}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </a>
               </li>
             )
@@ -73,20 +82,23 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
+          <LanguageSwitcher className="hidden sm:flex xl:mr-1" />
           <a
             href={SITE.phoneHref}
-            className="btn-gold hidden items-center gap-2 rounded-full bg-saffron px-6 py-2.5 text-[0.8rem] font-bold uppercase tracking-[0.18em] text-wine transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold sm:inline-flex"
+            className="btn-gold hidden items-center gap-2 rounded-full bg-saffron px-6 py-2.5 lg:px-5 xl:px-6 text-[0.8rem] font-bold uppercase tracking-[0.18em] text-wine transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold sm:inline-flex"
           >
             <Phone className="size-4" aria-hidden="true" />
-            Order Now
+            {t('common.orderNow')}
           </a>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            className="grid size-11 place-items-center rounded-full border border-gold/60 text-cream transition-colors hover:bg-gold/15 lg:hidden"
+            aria-label={open ? t('common.closeMenu') : t('common.openMenu')}
+            className={`grid size-11 place-items-center rounded-full border border-gold/60 text-cream transition-colors hover:bg-gold/15 ${
+              isFr ? 'xl:hidden' : 'lg:hidden'
+            }`}
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -96,7 +108,7 @@ export function Navbar() {
       {/* Mobile menu */}
       <div
         id="mobile-menu"
-        className={`grid overflow-hidden bg-wine transition-[grid-template-rows,opacity] duration-500 ease-[var(--ease-royal)] lg:hidden ${
+        className={`grid overflow-hidden bg-wine transition-[grid-template-rows,opacity] duration-500 ease-[var(--ease-royal)] ${isFr ? 'xl:hidden' : 'lg:hidden'} ${
           open ? 'grid-rows-[1fr] opacity-100' : 'invisible grid-rows-[0fr] opacity-0'
         }`}
       >
@@ -120,7 +132,7 @@ export function Navbar() {
                       current ? 'text-saffron' : 'text-cream'
                     }`}
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </a>
                 </li>
               )
@@ -136,8 +148,16 @@ export function Navbar() {
                 className="btn-gold flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-saffron px-5 py-4 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-wine"
               >
                 <Phone className="size-4" aria-hidden="true" />
-                Order Now · {SITE.phoneDisplay}
+                {t('common.orderNowPhone', { phone: SITE.phoneDisplay })}
               </a>
+            </li>
+            <li
+              style={{ transitionDelay: open ? '600ms' : '0ms' }}
+              className={`pt-4 transition-[opacity,transform] duration-500 ${
+                open ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`}
+            >
+              <LanguageSwitcher variant="menu" />
             </li>
           </ul>
         </div>

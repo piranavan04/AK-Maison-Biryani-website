@@ -1,9 +1,11 @@
 import { MapPin, Phone } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { NAV_ITEMS, SITE, SOCIAL_LINKS } from '../data/site'
 import { Logo } from './Logo'
 import { Reveal } from './Reveal'
 
 export function Contact() {
+  const { t } = useTranslation()
   return (
     <footer id="contact" aria-labelledby="contact-title" className="relative bg-wine text-cream">
       <div
@@ -18,11 +20,10 @@ export function Contact() {
       <div className="relative mx-auto max-w-7xl px-5 pb-10 pt-20 sm:px-8 sm:pt-24">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 id="contact-title" className="font-display text-4xl font-semibold sm:text-5xl lg:text-6xl">
-            We Look Forward to <span className="italic text-saffron">Welcoming You.</span>
+            {t('footer.titleLead')} <span className="italic text-saffron">{t('footer.titleAccent')}</span>
           </h2>
           <p className="mt-5 text-base text-cream/75 sm:text-lg">
-            Questions or orders? Call us, or come and see us at our Grand Opening on{' '}
-            {SITE.grandOpening.dateLabel}.
+            {t('footer.intro', { date: t('opening.date') })}
           </p>
         </Reveal>
 
@@ -30,12 +31,12 @@ export function Contact() {
           <div>
             <Logo className="h-16 sm:h-20" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/65">
-              {SITE.tagline} in Montreal, Quebec.
+              {t('footer.tagline')}
             </p>
           </div>
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-saffron">Find Us</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-saffron">{t('footer.findUs')}</h3>
             <ul className="mt-5 space-y-4 text-cream/85">
               <li className="flex gap-3">
                 <MapPin className="mt-1 size-4 shrink-0 text-gold" aria-hidden="true" />
@@ -60,8 +61,8 @@ export function Contact() {
           </div>
 
           <div className="grid grid-cols-2 gap-8">
-            <nav aria-label="Footer">
-              <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-saffron">Explore</h3>
+            <nav aria-label={t('common.footerNav')}>
+              <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-saffron">{t('footer.explore')}</h3>
               <ul className="mt-5 space-y-3">
                 {NAV_ITEMS.filter((item) => item.href !== '#contact').map((item) => (
                   <li key={item.href}>
@@ -69,14 +70,14 @@ export function Contact() {
                       href={item.href}
                       className="link-underline text-cream/85 transition-colors hover:text-saffron"
                     >
-                      {item.label}
+                      {t(item.labelKey)}
                     </a>
                   </li>
                 ))}
               </ul>
             </nav>
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-saffron">Follow</h3>
+              <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-saffron">{t('footer.follow')}</h3>
               <ul className="mt-5 space-y-3">
                 {SOCIAL_LINKS.map((social) => (
                   <li key={social.label}>
@@ -90,7 +91,7 @@ export function Contact() {
                         {social.label}
                       </a>
                     ) : (
-                      <span className="text-cream/45" title="Link coming soon">
+                      <span className="text-cream/45" title={t('footer.comingSoon')}>
                         {social.label}
                       </span>
                     )}
@@ -102,7 +103,7 @@ export function Contact() {
         </div>
 
         <p className="mt-16 border-t border-gold/20 pt-6 text-center text-xs tracking-wider text-cream/50">
-          © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+          {t('footer.rights', { year: new Date().getFullYear(), name: SITE.name })}
         </p>
       </div>
     </footer>

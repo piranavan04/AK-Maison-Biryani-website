@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { Diet } from '../../data/menu'
 
 /**
@@ -5,8 +6,9 @@ import type { Diet } from '../../data/menu'
  * on a cream square so it stays legible on the dark menu background.
  */
 export function DietMark({ diet, className = '' }: { diet: Diet; className?: string }) {
+  const { t } = useTranslation()
   const veg = diet === 'veg'
-  const label = veg ? 'Vegetarian' : 'Non-vegetarian'
+  const label = veg ? t('menu.veg') : t('menu.nonVeg')
   return (
     <span
       role="img"

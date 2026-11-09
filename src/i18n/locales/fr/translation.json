@@ -1,0 +1,448 @@
+{
+  "meta": {
+    "title": "AK Maison Biryani | Cuisine du sud de l’Inde à Montréal",
+    "description": "AK Maison Biryani, cuisine authentique du sud de l’Inde au 431 Boul. Henri Bourassa East, Montréal. Grande ouverture le 11 novembre 2026 à 11 h."
+  },
+  "common": {
+    "skipToMenu": "Passer au menu",
+    "logoHome": "AK Maison Biryani, retour en haut de la page",
+    "orderNow": "Commander",
+    "orderNowPhone": "Commander · {{phone}}",
+    "openMenu": "Ouvrir le menu de navigation",
+    "closeMenu": "Fermer le menu de navigation",
+    "primaryNav": "Navigation principale",
+    "footerNav": "Pied de page"
+  },
+  "language": {
+    "groupLabel": "Choisir la langue",
+    "en": "English",
+    "fr": "Français",
+    "enShort": "EN",
+    "frShort": "FR",
+    "switchTo": "Passer à : {{language}}",
+    "current": "{{language}} (langue actuelle)"
+  },
+  "nav": {
+    "home": "Accueil",
+    "story": "Notre histoire",
+    "menu": "Menu",
+    "gallery": "Galerie",
+    "contact": "Nous joindre"
+  },
+  "opening": {
+    "title": "Grande ouverture",
+    "date": "11 novembre 2026",
+    "time": "11 h",
+    "sealDay": "11 nov.",
+    "sealYearTime": "2026 · {{time}}",
+    "dateTime": "{{date}} à {{time}}"
+  },
+  "hero": {
+    "eyebrow": "Cuisine authentique du sud de l’Inde",
+    "titleLead": "Des saveurs royales,",
+    "titleAccent": "une tradition authentique.",
+    "intro": "Découvrez les riches arômes, les épices authentiques et les saveurs inoubliables de la cuisine du sud de l’Inde chez AK Maison Biryani.",
+    "ctaMenu": "Découvrir notre menu",
+    "ctaVisit": "Visiter le restaurant",
+    "photoLabel": "Biryani au poulet"
+  },
+  "story": {
+    "eyebrow": "Notre histoire",
+    "titleLead": "Les saveurs du sud de l’Inde,",
+    "titleAccent": "servies royalement.",
+    "p1": "AK Maison Biryani est une adresse de cuisine du sud de l’Inde au cœur de Montréal, imaginée autour des plats qui font une table indienne généreuse : biryani parfumé, dosa doré, tandoori fumé et caris mijotés lentement.",
+    "p2": "Chaque assiette est faite pour être partagée. Venez en famille ou entre amis et profitez de la chaleur de l’hospitalité indienne, autour de saveurs riches en épices et en traditions.",
+    "cta": "Découvrir notre histoire",
+    "photoLabel": "Servi royalement"
+  },
+  "signature": {
+    "eyebrow": "De notre cuisine",
+    "titleLead": "Nos",
+    "titleAccent": "spécialités",
+    "listLabel": "Nos spécialités",
+    "prev": "Plat précédent",
+    "next": "Plat suivant",
+    "showDish": "Afficher le plat {{number}}",
+    "swipe": "Glissez pour découvrir",
+    "categories": {
+      "Biryani": "Biryani",
+      "South Indian": "Sud de l’Inde",
+      "Non-Veg Specials": "Viandes et volailles"
+    },
+    "dishes": {
+      "chicken-dum-biryani": {
+        "name": "Biryani dum au poulet",
+        "description": "Riz basmati à grain long et poulet épicé, scellés dans la marmite et cuits lentement à l’étouffée : chaque grain s’imprègne des arômes."
+      },
+      "mutton-biryani": {
+        "name": "Biryani à l’agneau",
+        "description": "Agneau tendre avec os, mêlé à un riz au safran, à la menthe et aux oignons croustillants. Un plat fait pour être partagé et savouré."
+      },
+      "masala-dosa": {
+        "name": "Dosa masala croustillant",
+        "description": "Un dosa doré, fin et croustillant, garni de pommes de terre épicées et servi avec sambar et chutneys frais."
+      },
+      "idli-sambar": {
+        "name": "Idli et sambar",
+        "description": "Galettes de riz moelleuses cuites à la vapeur, avec chutney à la noix de coco et un sambar de lentilles chaud et acidulé. Un classique du matin dans le sud de l’Inde."
+      },
+      "tandoori-chicken": {
+        "name": "Poulet tandoori",
+        "description": "Mariné dans le yogourt et des épices relevées, puis grillé jusqu’à ce qu’il soit fumé, doré sur les bords et juteux à l’intérieur."
+      },
+      "chicken-65": {
+        "name": "Poulet 65",
+        "description": "Poulet frit, croustillant et relevé, sauté avec feuilles de cari, piment vert et ail. L’entrée parfaite."
+      },
+      "chicken-curry": {
+        "name": "Cari de poulet traditionnel",
+        "description": "Une sauce maison aux épices grillées et aux oignons, mijotée lentement, à savourer jusqu’à la dernière goutte."
+      },
+      "mutton-curry": {
+        "name": "Cari d’agneau",
+        "description": "Agneau mijoté lentement dans un masala profond et poivré, riche en épices entières et parsemé de coriandre fraîche."
+      },
+      "south-indian-thali": {
+        "name": "Thali du sud de l’Inde",
+        "description": "Un généreux assortiment de riz, de caris, de poriyal et d’accompagnements, comme on aime le partager à une table du sud de l’Inde."
+      }
+    }
+  },
+  "menu": {
+    "eyebrow": "Découvrez notre cuisine",
+    "titleLead": "Un voyage culinaire",
+    "titleAccent": "à travers le sud de l’Inde",
+    "intro": "Des biryanis parfumés aux grands classiques du sud de l’Inde, découvrez une sélection de saveurs authentiques préparées pour rendre chaque repas mémorable.",
+    "veg": "Végétarien",
+    "nonVeg": "Non végétarien",
+    "all": "Tout",
+    "tabsLabel": "Catégories du menu",
+    "category": "Catégorie",
+    "dishCount_one": "{{count}} plat",
+    "dishCount_other": "{{count}} plats",
+    "viewPhoto": "Voir la photo",
+    "viewLarger": "Voir une photo agrandie : {{name}}",
+    "backToTop": "Retour au début du menu",
+    "tags": {
+      "signature": "Signature",
+      "spicy": "Épicé",
+      "sharing": "À partager"
+    },
+    "categories": {
+      "biryani": {
+        "name": "Biryanis signature",
+        "tab": "Biryanis",
+        "description": "Laissez-vous séduire par l’arôme irrésistible du biryani traditionnel, avec ses couches de riz parfumé, d’épices authentiques et de saveurs riches."
+      },
+      "chicken": {
+        "name": "Spécialités au poulet",
+        "tab": "Poulet",
+        "description": "Une délicieuse sélection de plats de poulet préparés avec des épices indiennes traditionnelles et des saveurs franches."
+      },
+      "mutton": {
+        "name": "Spécialités d’agneau",
+        "tab": "Agneau",
+        "description": "Savourez des plats d’agneau mijotés lentement, aux saveurs authentiques du sud de l’Inde."
+      },
+      "south-indian": {
+        "name": "Classiques du sud de l’Inde",
+        "tab": "Sud de l’Inde",
+        "description": "Célébrez le goût intemporel du sud de l’Inde avec nos grands classiques."
+      },
+      "vegetarian": {
+        "name": "Plats végétariens",
+        "tab": "Végétarien",
+        "description": "Des caris et des dals réconfortants, mijotés lentement avec des épices entières et des herbes fraîches."
+      },
+      "starters": {
+        "name": "Entrées et à-côtés",
+        "tab": "Entrées",
+        "description": "Des bouchées croustillantes et épicées pour commencer le repas, et des pains à partager avec chaque cari."
+      },
+      "beverages": {
+        "name": "Boissons",
+        "tab": "Boissons",
+        "description": "Boissons chaudes traditionnelles et rafraîchissements pour compléter votre repas."
+      }
+    },
+    "dishes": {
+      "chicken-dum-biryani": {
+        "name": "Biryani dum au poulet",
+        "description": "Poulet épicé et basmati à grain long, scellés dans la marmite et cuits lentement à l’étouffée.",
+        "alt": "Biryani dum au poulet dans un handi en laiton avec une cuillère dorée"
+      },
+      "mutton-biryani": {
+        "name": "Biryani à l’agneau",
+        "description": "Agneau tendre mêlé à un riz parfumé, avec oignons frits, menthe et épices entières.",
+        "alt": "Biryani à l’agneau dans une assiette blanche avec un quartier de lime"
+      },
+      "egg-biryani": {
+        "name": "Biryani aux œufs",
+        "description": "Riz au safran en couches avec des œufs durs enrobés de masala, servi avec raïta.",
+        "alt": "Biryani aux œufs avec rondelles d’oignon et menthe, servi avec raïta"
+      },
+      "vegetable-biryani": {
+        "name": "Biryani aux légumes",
+        "description": "Légumes de saison et basmati cuits ensemble avec menthe, coriandre et oignons croustillants.",
+        "alt": "Biryani aux légumes garni d’oignons frits et d’herbes fraîches"
+      },
+      "chicken-leg-biryani": {
+        "name": "Biryani à la cuisse de poulet",
+        "description": "Une cuisse de poulet entière marinée au masala, enfouie dans un riz biryani épicé.",
+        "alt": "Biryani garni d’une cuisse de poulet, avec salan et raïta"
+      },
+      "biryani-family-platter": {
+        "name": "Plateau biryani familial",
+        "description": "Un généreux plateau de biryani à partager, avec œufs et garnitures fraîches pour toute la tablée.",
+        "alt": "Grand plateau de biryani avec œufs et concombre sur une nappe rouge"
+      },
+      "butter-chicken": {
+        "name": "Poulet au beurre",
+        "description": "Poulet grillé au tandoor dans une sauce onctueuse aux tomates, au beurre et à la crème.",
+        "alt": "Poulet au beurre garni d’un filet de crème"
+      },
+      "chicken-tikka-masala": {
+        "name": "Poulet tikka masala",
+        "description": "Poulet tikka grillé, mijoté dans un masala riche et doucement épicé, idéal avec un naan.",
+        "alt": "Poulet tikka masala avec menthe et naan frais"
+      },
+      "home-style-chicken-curry": {
+        "name": "Cari de poulet maison",
+        "description": "Poulet avec os mijoté lentement dans une sauce aux oignons, aux tomates et aux épices grillées.",
+        "alt": "Cari de poulet maison avec morceaux de poulet avec os"
+      },
+      "chicken-karahi": {
+        "name": "Poulet karahi",
+        "description": "Poulet sauté dans un karahi bien chaud avec tomates, gingembre, piment vert et coriandre.",
+        "alt": "Poulet karahi dans un wok noir avec gingembre et lime"
+      },
+      "tandoori-chicken": {
+        "name": "Poulet tandoori",
+        "description": "Poulet mariné au yogourt et aux épices, rôti jusqu’à ce qu’il soit fumé et grillé.",
+        "alt": "Poulet tandoori avec tranches de citron et oignon rouge"
+      },
+      "chicken-tikka": {
+        "name": "Poulet tikka",
+        "description": "Poulet désossé grillé en brochettes avec poivrons et oignons.",
+        "alt": "Morceaux de poulet tikka grillés avec poivrons et oignons"
+      },
+      "mutton-masala": {
+        "name": "Agneau masala",
+        "description": "Agneau cuit à feu doux dans un masala épais, garni de coriandre fraîche.",
+        "alt": "Agneau masala dans une poêle, garni de coriandre"
+      },
+      "mutton-kuzhambu": {
+        "name": "Kuzhambu à l’agneau",
+        "description": "Une sauce à l’agneau du sud de l’Inde aux feuilles de cari, au poivre noir et aux épices entières.",
+        "alt": "Kuzhambu à l’agneau avec feuilles de cari, cannelle et cardamome"
+      },
+      "mutton-nalli-nihari": {
+        "name": "Nalli nihari d’agneau",
+        "description": "Jarrets d’agneau à moelle braisés toute la nuit en un ragoût soyeux et épicé.",
+        "alt": "Nalli nihari d’agneau avec un os à moelle dans une casserole en cuivre"
+      },
+      "mutton-sukka": {
+        "name": "Agneau sukka",
+        "description": "Agneau rôti à sec avec poivre, noix de coco et feuilles de cari.",
+        "alt": "Agneau sukka dans un petit karahi avec du citron"
+      },
+      "masala-dosa": {
+        "name": "Dosa masala",
+        "description": "Un dosa doré et croustillant garni de pommes de terre épicées, servi avec sambar et chutneys.",
+        "alt": "Dosa masala sur une feuille de bananier avec sambar et chutneys"
+      },
+      "plain-dosa": {
+        "name": "Dosa nature",
+        "description": "Une crêpe de riz et de lentilles, fine et croustillante, servie avec sambar et chutney.",
+        "alt": "Dosa nature roulé avec sambar et chutney à la noix de coco"
+      },
+      "rava-dosa": {
+        "name": "Rava dosa",
+        "description": "Un dosa de semoule ajouré au cumin et au poivre, croustillant sur les bords.",
+        "alt": "Rava dosa ajouré sur un plateau en acier avec trois accompagnements"
+      },
+      "idli-sambar": {
+        "name": "Idli et sambar",
+        "description": "Galettes de riz moelleuses cuites à la vapeur, avec un sambar de lentilles chaud.",
+        "alt": "Idli avec un bol de sambar dans une assiette fleurie"
+      },
+      "medu-vada": {
+        "name": "Medu vada",
+        "description": "Beignets de lentilles croustillants, moelleux à l’intérieur, avec sambar et chutney à la noix de coco.",
+        "alt": "Medu vada avec sambar, chutney et café"
+      },
+      "podi-idli": {
+        "name": "Podi idli",
+        "description": "Idli saupoudrés de podi épicé et arrosés d’un filet de ghee.",
+        "alt": "Idli garnis de podi sur une feuille de bananier"
+      },
+      "paneer-butter-masala": {
+        "name": "Paneer au beurre masala",
+        "description": "Paneer tendre dans une sauce veloutée aux tomates et au beurre, finie à la crème.",
+        "alt": "Paneer au beurre masala dans un bol en laiton"
+      },
+      "dal-tadka": {
+        "name": "Dal tadka",
+        "description": "Lentilles jaunes relevées au ghee, au cumin, à l’ail et au piment vert.",
+        "alt": "Dal tadka avec piment vert, rondelles d’oignon et citron"
+      },
+      "chana-bhatura": {
+        "name": "Chana masala et bhatura",
+        "description": "Cari de pois chiches épicé, servi avec des bhaturas dorés et gonflés.",
+        "alt": "Chana masala avec bhatura doré"
+      },
+      "aloo-mattar": {
+        "name": "Aloo mattar",
+        "description": "Pommes de terre et petits pois dans une sauce maison aux tomates et aux oignons.",
+        "alt": "Cari aloo mattar aux pommes de terre et petits pois"
+      },
+      "masala-vada": {
+        "name": "Masala vada",
+        "description": "Beignets croquants de chana dal à l’oignon, aux feuilles de cari et au piment vert.",
+        "alt": "Pile de masala vada sur une feuille de bananier"
+      },
+      "vegetable-samosa": {
+        "name": "Samosas aux légumes",
+        "description": "Pâte feuilletée farcie de pommes de terre et de petits pois épicés, avec chutney vert.",
+        "alt": "Samosas aux légumes avec piment vert et chutney"
+      },
+      "onion-pakoda": {
+        "name": "Pakoda à l’oignon",
+        "description": "Beignets à la farine de pois chiches, à l’oignon et à la coriandre, frits jusqu’à ce qu’ils soient dorés.",
+        "alt": "Pakoda à l’oignon dorés avec un quartier de lime"
+      },
+      "chicken-pakoda": {
+        "name": "Pakoda au poulet",
+        "description": "Morceaux de poulet épicés enrobés de pâte à la farine de pois chiches et frits bien croustillants.",
+        "alt": "Pakoda au poulet frits et croustillants"
+      },
+      "malabar-parotta": {
+        "name": "Parotta de Malabar",
+        "description": "Pain plat feuilleté, à déchirer et à tremper dans chaque cari.",
+        "alt": "Parotta de Malabar feuilletée avec feuilles de cari et piments"
+      },
+      "butter-naan": {
+        "name": "Naan au beurre",
+        "description": "Pain levé moelleux cuit au tandoor, badigeonné de beurre.",
+        "alt": "Pile de naans au beurre grillés sur une planche"
+      },
+      "filter-coffee": {
+        "name": "Café filtre",
+        "description": "Décoction de café infusée goutte à goutte, servie avec du lait chaud moussé.",
+        "alt": "Décoction de café coulant à travers un filtre"
+      },
+      "masala-chai": {
+        "name": "Chai masala",
+        "description": "Thé noir mijoté avec du lait, du gingembre et de la cardamome, versé dans des tasses en argile.",
+        "alt": "Chai masala versé dans des tasses kulhad en argile"
+      },
+      "mango-lassi": {
+        "name": "Lassi à la mangue",
+        "description": "Yogourt froid mélangé à de la mangue bien mûre.",
+        "alt": "Lassi à la mangue dans un grand verre avec des mangues fraîches"
+      },
+      "rose-lassi": {
+        "name": "Lassi à la rose",
+        "description": "Yogourt crémeux au sirop de rose, servi froid dans une tasse en argile.",
+        "alt": "Lassi à la rose garni de pétales de rose dans une tasse en argile"
+      }
+    }
+  },
+  "why": {
+    "eyebrow": "La promesse AK",
+    "titleLead": "Pourquoi choisir",
+    "titleAccent": "AK Maison Biryani?",
+    "reasons": {
+      "r1": {
+        "title": "Cuisine authentique du sud de l’Inde",
+        "text": "Biryani, dosa, tandoori et repas traditionnels, ancrés dans les saveurs du sud de l’Inde."
+      },
+      "r2": {
+        "title": "Des saveurs riches et traditionnelles",
+        "text": "Des épices en couches et une cuisson lente qui donnent à chaque plat sa profondeur et son arôme."
+      },
+      "r3": {
+        "title": "Des ingrédients choisis avec soin",
+        "text": "Herbes fraîches, épices entières et riz de qualité, sélectionnés avec soin pour chaque assiette."
+      },
+      "r4": {
+        "title": "La chaleur de l’hospitalité indienne",
+        "text": "Un accueil qui traite chaque invité comme un membre de la famille, du premier bonjour à la dernière bouchée."
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "Galerie",
+    "titleLead": "Un festin pour les",
+    "titleAccent": "yeux",
+    "open": "Ouvrir la photo : {{caption}}",
+    "items": {
+      "g-ghee-roast": "Dosa rôti au ghee",
+      "g-spices": "Épices entières",
+      "g-mutton-spread": "Festin de cari d’agneau",
+      "g-cone-dosa": "Dosa en cône",
+      "g-grill": "Tout droit du tandoor",
+      "g-pepper-fry": "Agneau sauté au poivre",
+      "g-banana-leaf": "Repas sur feuille de bananier",
+      "g-karahi": "Cari en karahi de laiton",
+      "g-idli-coffee": "Idli et café filtre",
+      "g-tawa": "Tout chaud sorti du tawa",
+      "g-chicken-fry": "Poulet frit au piment",
+      "g-skewers": "Sur la braise"
+    }
+  },
+  "lightbox": {
+    "close": "Fermer la photo",
+    "prev": "Image précédente",
+    "next": "Image suivante",
+    "dialog": "{{caption}}, image {{index}} sur {{count}}"
+  },
+  "visit": {
+    "eyebrow": "Venez nous voir",
+    "titleLead": "Venez en famille",
+    "titleAccent": "et entre amis.",
+    "invited": "Vous êtes invités",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "directions": "Itinéraire",
+    "directionsNote": " (ouvre Google Maps dans un nouvel onglet)",
+    "call": "Appelez-nous",
+    "mapTitle": "Carte indiquant AK Maison Biryani au 431 Boul. Henri Bourassa East, Montréal"
+  },
+  "footer": {
+    "titleLead": "Au plaisir de",
+    "titleAccent": "vous accueillir.",
+    "intro": "Des questions ou une commande? Appelez-nous, ou venez nous voir à notre grande ouverture le {{date}}.",
+    "tagline": "Cuisine du sud de l’Inde à Montréal (Québec).",
+    "findUs": "Nous trouver",
+    "explore": "Explorer",
+    "follow": "Suivez-nous",
+    "comingSoon": "Lien à venir",
+    "rights": "© {{year}} {{name}}. Tous droits réservés."
+  },
+  "images": {
+    "hero": "Biryani au poulet dans un handi en cuivre martelé, éclairé par des lanternes chaleureuses",
+    "story": "Assortiment de caris, de biryani et de naans servis dans des plats en cuivre",
+    "chickenDum": "Une cuillerée de biryani dum au poulet soulevée de la marmite",
+    "muttonBiryani": "Biryani à l’agneau avec riz au safran et menthe dans un handi en cuivre",
+    "masalaDosa": "Dosa masala croustillant servi avec sambar et trois chutneys",
+    "idli": "Idli moelleux sur une feuille de bananier avec chutney à la noix de coco et piments rouges séchés",
+    "tandoori": "Morceaux de poulet tandoori sur une ardoise noire avec chutney à la menthe",
+    "chicken65": "Poulet 65 sauté aux feuilles de cari et aux poivrons",
+    "chickenCurry": "Cari de poulet servi sur une feuille de bananier avec des pathiris de riz moelleux",
+    "muttonCurry": "Cari d’agneau mijoté dans un karahi en acier",
+    "thali": "Thali du sud de l’Inde avec riz, caris et accompagnements sur une feuille de bananier",
+    "gGheeRoast": "Dosa rôti au ghee avec sambar et chutney à la noix de coco sur une feuille de bananier",
+    "gConeDosa": "Dosa en forme de cône servi sur une assiette en acier",
+    "gGrill": "Poulet tandoori grillé, tout juste sorti du gril",
+    "gSkewers": "Brochettes de poulet cuisant sur la braise",
+    "gMuttonSpread": "Cari d’agneau et riz servis à partager",
+    "gKarahi": "Cari rouge et riche dans un karahi en laiton avec coriandre fraîche",
+    "gPepperFry": "Agneau sauté au poivre avec feuilles de cari et piments rouges séchés",
+    "gChickenFry": "Poulet frit au piment avec piments séchés entiers sur une assiette noire",
+    "gSpices": "Épices entières, curcuma et feuilles de cari sur une planche sombre",
+    "gTawa": "Pains plats cuits à la main sur un grand tawa en fonte",
+    "gBananaLeaf": "Repas traditionnel du sud de l’Inde servi sur une feuille de bananier",
+    "gIdliCoffee": "Idli avec sambar, chutneys et café filtre"
+  }
+}

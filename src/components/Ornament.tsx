@@ -24,7 +24,7 @@ interface EyebrowProps {
 export function Eyebrow({ children, tone = 'gold', className = '' }: EyebrowProps) {
   const color = tone === 'gold' ? 'text-saffron' : 'text-royal'
   return (
-    <p className={`text-xs font-semibold uppercase tracking-[0.32em] sm:text-[0.8rem] ${color} ${className}`}>
+    <p className={`text-xs font-semibold uppercase tracking-[0.32em] sm:text-[0.8rem] [&:lang(fr)]:text-balance ${color} ${className}`}>
       {children}
     </p>
   )

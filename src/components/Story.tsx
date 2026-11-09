@@ -1,10 +1,12 @@
 import { ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { IMAGES, photoProps } from '../data/images'
 import { Eyebrow, Ornament } from './Ornament'
 import { FoodImage } from './FoodImage'
 import { Reveal } from './Reveal'
 
 export function Story() {
+  const { t } = useTranslation()
   return (
     <section
       id="story"
@@ -29,8 +31,8 @@ export function Story() {
             />
             <div className="group relative aspect-[4/5] overflow-hidden bg-burgundy">
               <FoodImage
-                {...photoProps(IMAGES.story)}
-                label="Served with Royalty"
+                {...photoProps(IMAGES.story, t)}
+                label={t('story.photoLabel')}
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 className="size-full transition-transform duration-[1400ms] ease-[var(--ease-royal)] group-hover:scale-105"
               />
@@ -40,7 +42,7 @@ export function Story() {
 
         <div>
           <Reveal>
-            <Eyebrow tone="burgundy">Our Story</Eyebrow>
+            <Eyebrow tone="burgundy">{t('story.eyebrow')}</Eyebrow>
             <Ornament className="mt-4 !text-royal" />
           </Reveal>
           <Reveal delay={100}>
@@ -48,20 +50,13 @@ export function Story() {
               id="story-title"
               className="mt-6 font-display text-4xl font-semibold leading-[1.08] text-burgundy sm:text-5xl lg:text-[3.4rem]"
             >
-              A Taste of South India, <span className="italic text-royal">Served with Royalty.</span>
+              {t('story.titleLead')} <span className="italic text-royal">{t('story.titleAccent')}</span>
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <div className="mt-7 max-w-xl space-y-5 text-base leading-relaxed text-charcoal/80 sm:text-lg">
-              <p>
-                AK Maison Biryani is a South Indian cuisine destination in the heart of Montreal,
-                created around the dishes that define a generous Indian table: aromatic biryani,
-                golden dosa, smoky tandoori and slow-simmered curries.
-              </p>
-              <p>
-                Every plate is meant to be shared. Come with your family and friends, and enjoy the
-                warmth of true Indian hospitality alongside flavours rich in spice and tradition.
-              </p>
+              <p>{t('story.p1')}</p>
+              <p>{t('story.p2')}</p>
             </div>
           </Reveal>
           <Reveal delay={300}>
@@ -69,7 +64,7 @@ export function Story() {
               href="#why"
               className="btn-gold group mt-10 inline-flex items-center gap-3 rounded-full bg-burgundy px-8 py-4 text-[0.82rem] font-bold uppercase tracking-[0.2em] text-cream transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-royal"
             >
-              Discover Our Story
+              {t('story.cta')}
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Reveal>

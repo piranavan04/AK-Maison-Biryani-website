@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { photoProps, type Photo } from '../data/images'
 import { FoodImage } from './FoodImage'
 
@@ -20,6 +21,7 @@ interface LightboxProps {
 
 export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
   const closeRef = useRef<HTMLButtonElement>(null)
+  const { t } = useTranslation()
   const item = items[index]
   const count = items.length
 
@@ -51,7 +53,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`${item.caption}, image ${index + 1} of ${count}`}
+      aria-label={t('lightbox.dialog', { caption: item.caption, index: index + 1, count })}
       className="fixed inset-0 z-[100] flex flex-col bg-wine/95 backdrop-blur-sm"
       onClick={onClose}
     >
@@ -63,7 +65,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
           ref={closeRef}
           type="button"
           onClick={onClose}
-          aria-label="Close photo"
+          aria-label={t('lightbox.close')}
           className="grid size-11 place-items-center rounded-full border border-gold/60 text-cream transition-colors hover:bg-gold/20"
         >
           <X className="size-5" />
@@ -77,7 +79,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
             e.stopPropagation()
             prev()
           }}
-          aria-label="Previous image"
+          aria-label={t('lightbox.prev')}
           className="absolute left-2 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-gold/60 bg-wine/70 text-cream transition-colors hover:bg-gold/20 sm:left-6"
         >
           <ChevronLeft className="size-5" />
@@ -90,7 +92,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
           style={{ '--d': '0ms' } as React.CSSProperties}
         >
           <FoodImage
-            {...photoProps(item.photo)}
+            {...photoProps(item.photo, t)}
             label={item.caption}
             eager
             sizes="(min-width: 1024px) 64rem, 100vw"
@@ -108,7 +110,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
             e.stopPropagation()
             next()
           }}
-          aria-label="Next image"
+          aria-label={t('lightbox.next')}
           className="absolute right-2 top-1/2 z-10 grid size-11 -translate-y-1/2 place-items-center rounded-full border border-gold/60 bg-wine/70 text-cream transition-colors hover:bg-gold/20 sm:right-6"
         >
           <ChevronRight className="size-5" />

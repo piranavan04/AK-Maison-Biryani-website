@@ -1,5 +1,6 @@
 import { ArrowUp } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { useTranslation } from 'react-i18next'
 import { MENU } from '../../data/menu'
 import { Lightbox, type LightboxItem } from '../Lightbox'
 import { Eyebrow, Ornament } from '../Ornament'
@@ -17,6 +18,7 @@ const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: r
  * in one continuous scroll. Tabs jump smoothly to a category; the active tab follows scrolling.
  */
 export function MenuSection() {
+  const { t } = useTranslation()
   const tabsRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(ALL)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -25,8 +27,11 @@ export function MenuSection() {
   const lockUntil = useRef(0)
 
   const tabs: MenuTab[] = useMemo(
-    () => [{ id: ALL, label: 'All' }, ...MENU.map((c) => ({ id: c.id, label: c.tab }))],
-    [],
+    () => [
+      { id: ALL, label: t('menu.all') },
+      ...MENU.map((c) => ({ id: c.id, label: t(`menu.categories.${c.id}.tab`) })),
+    ],
+    [t],
   )
 
   // Every dish photo, in menu order, for the lightbox.
@@ -36,11 +41,16 @@ export function MenuSection() {
     for (const category of MENU) {
       startIndex[category.id] = photos.length
       for (const dish of category.dishes) {
-        photos.push({ id: dish.id, photo: dish.photo, caption: dish.name, detail: dish.description })
+        photos.push({
+          id: dish.id,
+          photo: dish.photo,
+          caption: t(`menu.dishes.${dish.id}.name`),
+          detail: t(`menu.dishes.${dish.id}.description`),
+        })
       }
     }
     return { photos, startIndex }
-  }, [])
+  }, [t])
 
   // Track the fixed header's height (it shrinks after scrolling) and the tab bar's height.
   useEffect(() => {
@@ -114,24 +124,24 @@ export function MenuSection() {
       {/* Introduction */}
       <div className="relative mx-auto max-w-3xl px-5 pb-10 pt-20 text-center sm:px-8 sm:pb-12 sm:pt-28">
         <Reveal>
-          <Eyebrow>Discover Our Cuisine</Eyebrow>
+          <Eyebrow>{t('menu.eyebrow')}</Eyebrow>
           <Ornament className="mx-auto mt-4 justify-center" />
           <h2
             id="menu-heading"
             className="mt-6 font-display text-[2.4rem] font-semibold leading-[1.08] sm:text-5xl lg:text-6xl"
           >
-            A Culinary Journey <span className="block italic text-saffron sm:inline">Through South India</span>
+            {t('menu.titleLead')}{' '}
+            <span className="block italic text-saffron sm:inline">{t('menu.titleAccent')}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-[0.98rem] leading-relaxed text-cream/75 sm:text-lg">
-            From aromatic biryanis to traditional South Indian favourites, discover a collection of
-            authentic flavours crafted to make every meal memorable.
+            {t('menu.intro')}
           </p>
           <p className="mt-6 flex items-center justify-center gap-5 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-cream/65">
             <span className="flex items-center gap-2">
-              <DietMark diet="veg" /> Vegetarian
+              <DietMark diet="veg" /> {t('menu.veg')}
             </span>
             <span className="flex items-center gap-2">
-              <DietMark diet="non-veg" /> Non-vegetarian
+              <DietMark diet="non-veg" /> {t('menu.nonVeg')}
             </span>
           </p>
         </Reveal>
@@ -140,6 +150,7 @@ export function MenuSection() {
       {/* Sticky category bar */}
       <div
         ref={tabsRef}
+        data-sticky-bar
         className="sticky z-30 border-y border-gold/25 bg-wine shadow-[0_12px_24px_-18px_rgb(0_0_0/0.8)]"
         style={{ top: offsets.header }}
       >
@@ -160,20 +171,20 @@ export function MenuSection() {
                 <span className="font-display text-4xl italic leading-none text-saffron sm:text-5xl">
                   {String(ci + 1).padStart(2, '0')}
                 </span>
-                <span className="text-[0.68rem] font-bold uppercase tracking-[0.3em]">Category</span>
+                <span className="text-[0.68rem] font-bold uppercase tracking-[0.3em]">{t('menu.category')}</span>
               </p>
               <h3
                 id={`${sectionId(category.id)}-title`}
                 className="mt-3 font-display text-[2rem] font-semibold leading-tight text-cream sm:text-[2.6rem]"
               >
-                {category.name}
+                {t(`menu.categories.${category.id}.name`)}
               </h3>
               <Ornament className="mt-4" />
               <p className="mt-4 max-w-md text-[0.95rem] leading-relaxed text-cream/70 sm:text-base">
-                {category.description}
+                {t(`menu.categories.${category.id}.description`)}
               </p>
               <p className="mt-4 text-[0.68rem] font-bold uppercase tracking-[0.3em] text-gold/80">
-                {category.dishes.length} dishes
+                {t('menu.dishCount', { count: category.dishes.length })}
               </p>
             </Reveal>
 
@@ -194,7 +205,7 @@ export function MenuSection() {
             className="group flex items-center gap-3 rounded-full border border-gold/60 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.24em] text-cream transition-colors hover:border-saffron hover:bg-saffron hover:text-wine"
           >
             <ArrowUp className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
-            Back to the top of the menu
+            {t('menu.backToTop')}
           </button>
         </div>
       </div>

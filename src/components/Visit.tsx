@@ -1,9 +1,11 @@
 import { CalendarDays, MapPin, Navigation, Phone } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { MAPS_DIRECTIONS_URL, MAPS_EMBED_URL, SITE } from '../data/site'
 import { Eyebrow, Ornament } from './Ornament'
 import { Reveal } from './Reveal'
 
 export function Visit() {
+  const { t } = useTranslation()
   return (
     <section
       id="visit"
@@ -17,13 +19,13 @@ export function Visit() {
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
         <div>
           <Reveal>
-            <Eyebrow>Visit Us</Eyebrow>
+            <Eyebrow>{t('visit.eyebrow')}</Eyebrow>
             <Ornament className="mt-4" />
             <h2
               id="visit-title"
               className="mt-6 font-display text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl"
             >
-              Bring Your Family <span className="italic text-saffron">and Friends.</span>
+              {t('visit.titleLead')} <span className="italic text-saffron">{t('visit.titleAccent')}</span>
             </h2>
           </Reveal>
 
@@ -34,16 +36,16 @@ export function Visit() {
                 aria-hidden="true"
                 className="absolute -top-px left-6 -translate-y-1/2 bg-burgundy px-3 text-[0.62rem] font-bold uppercase tracking-[0.3em] text-saffron"
               >
-                You are invited
+                {t('visit.invited')}
               </span>
               <div className="flex items-start gap-4">
                 <CalendarDays className="mt-1 size-6 shrink-0 text-saffron" aria-hidden="true" />
                 <div>
                   <p className="font-display text-3xl font-semibold leading-tight text-saffron sm:text-4xl">
-                    Grand Opening
+                    {t('opening.title')}
                   </p>
                   <p className="mt-1 text-lg text-cream sm:text-xl">
-                    {SITE.grandOpening.dateLabel} at {SITE.grandOpening.timeLabel}
+                    {t('opening.dateTime', { date: t('opening.date'), time: t('opening.time') })}
                   </p>
                 </div>
               </div>
@@ -54,7 +56,7 @@ export function Visit() {
             <dl className="mt-9 space-y-6">
               <div className="flex gap-4">
                 <dt className="mt-1">
-                  <MapPin className="size-5 text-gold" aria-label="Address" />
+                  <MapPin className="size-5 text-gold" aria-label={t('visit.address')} />
                 </dt>
                 <dd className="text-lg leading-snug text-cream/90">
                   <address className="not-italic">
@@ -68,7 +70,7 @@ export function Visit() {
               </div>
               <div className="flex gap-4">
                 <dt className="mt-1">
-                  <Phone className="size-5 text-gold" aria-label="Phone" />
+                  <Phone className="size-5 text-gold" aria-label={t('visit.phone')} />
                 </dt>
                 <dd>
                   <a
@@ -91,15 +93,15 @@ export function Visit() {
                 className="btn-gold inline-flex items-center justify-center gap-3 rounded-full bg-saffron px-8 py-4 text-[0.82rem] font-bold uppercase tracking-[0.2em] text-wine transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold"
               >
                 <Navigation className="size-4" aria-hidden="true" />
-                Get Directions
-                <span className="sr-only"> (opens Google Maps in a new tab)</span>
+                {t('visit.directions')}
+                <span className="sr-only">{t('visit.directionsNote')}</span>
               </a>
               <a
                 href={SITE.phoneHref}
                 className="inline-flex items-center justify-center gap-3 rounded-full border border-gold/70 px-8 py-4 text-[0.82rem] font-bold uppercase tracking-[0.2em] text-cream transition-colors duration-300 hover:border-saffron hover:bg-saffron/10 hover:text-saffron"
               >
                 <Phone className="size-4" aria-hidden="true" />
-                Call Us
+                {t('visit.call')}
               </a>
             </div>
           </Reveal>
@@ -112,7 +114,7 @@ export function Visit() {
           />
           <div className="relative aspect-[4/3] overflow-hidden border-2 border-gold bg-wine lg:aspect-auto lg:h-full lg:min-h-[28rem]">
             <iframe
-              title="Map showing AK Maison Biryani at 431 Boul. Henri Bourassa East, Montreal"
+              title={t('visit.mapTitle')}
               src={MAPS_EMBED_URL}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export interface MenuTab {
   id: string
@@ -16,6 +17,7 @@ interface MenuTabsProps {
  * scrolls sideways and keeps the active tab in view.
  */
 export function MenuTabs({ tabs, active, onSelect }: MenuTabsProps) {
+  const { t } = useTranslation()
   const rowRef = useRef<HTMLDivElement>(null)
   const [pill, setPill] = useState<{ x: number; w: number } | null>(null)
 
@@ -34,10 +36,10 @@ export function MenuTabs({ tabs, active, onSelect }: MenuTabsProps) {
     const resize = new ResizeObserver(place)
     resize.observe(row)
     return () => resize.disconnect()
-  }, [active])
+  }, [active, tabs])
 
   return (
-    <nav aria-label="Menu categories" className="relative">
+    <nav aria-label={t('menu.tabsLabel')} className="relative">
       <div
         ref={rowRef}
         className="menu-tabs relative flex gap-1 overflow-x-auto px-5 py-3 [scrollbar-width:none] sm:px-8 lg:justify-center [&::-webkit-scrollbar]:hidden"

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Contact } from './components/Contact'
 import { Dishes } from './components/Dishes'
 import { MenuSection } from './components/menu/MenuSection'
@@ -10,6 +11,7 @@ import { Visit } from './components/Visit'
 import { WhyChoose } from './components/WhyChoose'
 
 export default function App() {
+  const { t } = useTranslation()
   // Links that arrive with a section anchor (e.g. a QR code to /#menu) open at that section.
   // The browser's own jump happens before React has drawn the page, so it finds nothing;
   // this repeats it once the sections exist, and once more after fonts/images settle,
@@ -39,7 +41,7 @@ export default function App() {
         href="#menu"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-saffron focus:px-5 focus:py-2 focus:text-wine"
       >
-        Skip to menu
+        {t('common.skipToMenu')}
       </a>
       <Navbar />
       <main>

@@ -1,15 +1,21 @@
 import { Expand } from 'lucide-react'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { GALLERY } from '../data/gallery'
 import { Eyebrow, Ornament } from './Ornament'
 import { photoProps } from '../data/images'
 import { FoodImage } from './FoodImage'
-import { Lightbox } from './Lightbox'
+import { Lightbox, type LightboxItem } from './Lightbox'
 import { Reveal } from './Reveal'
 
 export function Gallery() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const close = useCallback(() => setOpenIndex(null), [])
+  const { t } = useTranslation()
+  const items: LightboxItem[] = useMemo(
+    () => GALLERY.map((item) => ({ id: item.id, photo: item.photo, caption: t(`gallery.items.${item.id}`) })),
+    [t],
+  )
 
   return (
     <section
@@ -23,13 +29,13 @@ export function Gallery() {
       />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <Eyebrow tone="burgundy">Gallery</Eyebrow>
+          <Eyebrow tone="burgundy">{t('gallery.eyebrow')}</Eyebrow>
           <Ornament className="mx-auto mt-4 justify-center !text-royal" />
           <h2
             id="gallery-title"
             className="mt-6 font-display text-4xl font-semibold leading-tight text-burgundy sm:text-5xl lg:text-6xl"
           >
-            A Feast for the <span className="italic text-royal">Eyes</span>
+            {t('gallery.titleLead')} <span className="italic text-royal">{t('gallery.titleAccent')}</span>
           </h2>
         </Reveal>
 
@@ -40,12 +46,12 @@ export function Gallery() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(i)}
-                  aria-label={`Open ${item.caption} photograph`}
+                  aria-label={t('gallery.open', { caption: items[i].caption })}
                   className="group relative block size-full cursor-zoom-in overflow-hidden bg-burgundy"
                 >
                   <FoodImage
-                    {...photoProps(item.photo)}
-                    label={item.caption}
+                    {...photoProps(item.photo, t)}
+                    label={items[i].caption}
                     sizes={
                       item.span.startsWith('col-span-2')
                         ? '(min-width: 1280px) 40rem, (min-width: 768px) 50vw, 100vw'
@@ -62,7 +68,7 @@ export function Gallery() {
                     className="absolute inset-2 border border-saffron/0 transition-colors duration-500 group-hover:border-saffron/70"
                   />
                   <span className="absolute inset-x-0 bottom-0 flex translate-y-3 items-center justify-between gap-3 p-4 text-left opacity-0 transition-[opacity,transform] duration-500 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
-                    <span className="font-display text-xl italic text-saffron">{item.caption}</span>
+                    <span className="font-display text-xl italic text-saffron">{items[i].caption}</span>
                     <Expand className="size-4 text-cream" aria-hidden="true" />
                   </span>
                 </button>
@@ -73,7 +79,7 @@ export function Gallery() {
       </div>
 
       {openIndex !== null && (
-        <Lightbox items={GALLERY} index={openIndex} onClose={close} onChange={setOpenIndex} />
+        <Lightbox items={items} index={openIndex} onClose={close} onChange={setOpenIndex} />
       )}
     </section>
   )

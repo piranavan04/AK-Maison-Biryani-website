@@ -1,26 +1,12 @@
+import { useTranslation } from 'react-i18next'
 import { Eyebrow, Ornament } from './Ornament'
 import { Reveal } from './Reveal'
 
-const REASONS = [
-  {
-    title: 'Authentic South Indian Cuisine',
-    text: 'Biryani, dosa, tandoori and traditional meals, rooted in the flavours of South India.',
-  },
-  {
-    title: 'Rich Traditional Flavours',
-    text: 'Layered spices and slow cooking that give every dish its depth and aroma.',
-  },
-  {
-    title: 'Carefully Selected Ingredients',
-    text: 'Fresh herbs, whole spices and quality rice, chosen with care for every plate.',
-  },
-  {
-    title: 'Warm Indian Hospitality',
-    text: 'A welcome that treats every guest like family, from the first greeting to the last bite.',
-  },
-]
+// Text for each reason is in the translation files under why.reasons.<id>.
+const REASONS = ['r1', 'r2', 'r3', 'r4'] as const
 
 export function WhyChoose() {
+  const { t } = useTranslation()
   return (
     <section
       id="why"
@@ -37,29 +23,29 @@ export function WhyChoose() {
 
       <div className="relative mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <Reveal className="lg:sticky lg:top-32 lg:self-start">
-          <Eyebrow>The AK Promise</Eyebrow>
+          <Eyebrow>{t('why.eyebrow')}</Eyebrow>
           <Ornament className="mt-4" />
           <h2
             id="why-title"
             className="mt-6 font-display text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-6xl"
           >
-            Why Choose <span className="italic text-saffron">AK Maison Biryani?</span>
+            {t('why.titleLead')} <span className="italic text-saffron">{t('why.titleAccent')}</span>
           </h2>
         </Reveal>
 
         <ol className="divide-y divide-gold/25 border-y border-gold/25">
           {REASONS.map((reason, i) => (
-            <Reveal as="li" key={reason.title} delay={i * 90}>
+            <Reveal as="li" key={reason} delay={i * 90}>
               <div className="group grid grid-cols-[3.2rem_1fr] items-start gap-4 py-8 sm:grid-cols-[5rem_1fr] sm:py-10">
                 <span className="font-display text-4xl italic text-gold/70 transition-colors duration-500 group-hover:text-saffron sm:text-5xl">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
                   <h3 className="font-display text-2xl font-semibold text-cream sm:text-[1.9rem]">
-                    {reason.title}
+                    {t(`why.reasons.${reason}.title`)}
                   </h3>
                   <p className="mt-2 max-w-lg text-[0.95rem] leading-relaxed text-cream/70 sm:text-base">
-                    {reason.text}
+                    {t(`why.reasons.${reason}.text`)}
                   </p>
                 </div>
               </div>

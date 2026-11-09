@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { DISHES } from '../data/dishes'
 import { Eyebrow, Ornament } from './Ornament'
 import { FoodImage } from './FoodImage'
@@ -11,6 +12,7 @@ const AUTOPLAY_MS = 3500
 const RESUME_AFTER_MS = 6000
 
 export function Dishes() {
+  const { t } = useTranslation()
   const trackRef = useRef<HTMLUListElement>(null)
   const [active, setActive] = useState(0)
   /** Number of distinct scroll positions (cards minus those already visible, plus one). */
@@ -152,20 +154,20 @@ export function Dishes() {
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <Eyebrow>From Our Kitchen</Eyebrow>
+          <Eyebrow>{t('signature.eyebrow')}</Eyebrow>
           <Ornament className="mx-auto mt-4 justify-center" />
           <h2
             id="signature-title"
             className="mt-6 font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl"
           >
-            Our Signature <span className="italic text-saffron">Flavours</span>
+            {t('signature.titleLead')} <span className="italic text-saffron">{t('signature.titleAccent')}</span>
           </h2>
         </Reveal>
 
         {/* Side-by-side cards on every screen size: 1 + a peek on phones, 2 on tablets, 3 on desktop. */}
         <ul
           ref={trackRef}
-          aria-label="Signature dishes"
+          aria-label={t('signature.listLabel')}
           onPointerEnter={(e) => e.pointerType === 'mouse' && (hovering.current = true)}
           onPointerLeave={() => (hovering.current = false)}
           onPointerDown={markInteraction}
@@ -193,8 +195,8 @@ export function Dishes() {
                       width={dish.photo.width}
                       height={dish.photo.height}
                       position={dish.photo.position}
-                      alt={dish.photo.alt}
-                      label={dish.name}
+                      alt={t(dish.photo.altKey)}
+                      label={t(`signature.dishes.${dish.id}.name`)}
                       preload={nearby}
                       sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 78vw"
                       className="size-full transition-transform duration-[1400ms] ease-[var(--ease-royal)] group-hover:scale-110"
@@ -213,11 +215,11 @@ export function Dishes() {
                 </div>
                 <div className="pt-6">
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-gold">
-                    {dish.category}
+                    {t(`signature.categories.${dish.category}`)}
                   </p>
                   <div className="mt-2 flex items-baseline justify-between gap-4">
                     <h3 className="font-display text-2xl font-semibold leading-tight text-cream transition-colors duration-300 group-hover:text-saffron sm:text-[1.7rem]">
-                      {dish.name}
+                      {t(`signature.dishes.${dish.id}.name`)}
                     </h3>
                     {dish.price && (
                       <span className="shrink-0 font-display text-xl font-semibold text-saffron">
@@ -229,7 +231,7 @@ export function Dishes() {
                     aria-hidden="true"
                     className="mt-3 block h-px w-12 bg-gold transition-[width] duration-500 ease-[var(--ease-royal)] group-hover:w-24"
                   />
-                  <p className="mt-4 text-[0.95rem] leading-relaxed text-cream/75">{dish.description}</p>
+                  <p className="mt-4 text-[0.95rem] leading-relaxed text-cream/75">{t(`signature.dishes.${dish.id}.description`)}</p>
                 </div>
               </article>
             </Reveal>
@@ -244,7 +246,7 @@ export function Dishes() {
               markInteraction()
               prev()
             }}
-            aria-label="Previous dish"
+            aria-label={t('signature.prev')}
             className="hidden size-11 place-items-center rounded-full border border-gold/60 text-cream transition-colors hover:bg-gold/15 hover:text-saffron sm:grid"
           >
             <ChevronLeft className="size-5" />
@@ -258,7 +260,7 @@ export function Dishes() {
                   markInteraction()
                   goTo(i)
                 }}
-                aria-label={`Show dish ${i + 1}`}
+                aria-label={t('signature.showDish', { number: i + 1 })}
                 aria-current={i === active ? 'true' : undefined}
                 className="group/dot grid h-8 place-items-center px-1"
               >
@@ -276,7 +278,7 @@ export function Dishes() {
               markInteraction()
               next()
             }}
-            aria-label="Next dish"
+            aria-label={t('signature.next')}
             className="hidden size-11 place-items-center rounded-full border border-gold/60 text-cream transition-colors hover:bg-gold/15 hover:text-saffron sm:grid"
           >
             <ChevronRight className="size-5" />
@@ -286,7 +288,7 @@ export function Dishes() {
           aria-hidden="true"
           className="mt-2 text-center text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-gold/80 sm:hidden"
         >
-          Swipe to explore
+          {t('signature.swipe')}
         </p>
       </div>
     </section>
