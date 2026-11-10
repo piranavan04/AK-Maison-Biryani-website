@@ -47,12 +47,12 @@ export function LanguageSwitcher({ variant = 'bar', className = '' }: LanguageSw
     <div
       role="group"
       aria-label={t('language.groupLabel')}
-      className={`items-center gap-2 xl:gap-2.5 ${className}`}
+      className={`items-center gap-1 sm:gap-2 xl:gap-2.5 ${className}`}
     >
       {LANGUAGES.map((lng, i) => {
         const isActive = lng === active
         return (
-          <span key={lng} className="flex items-center gap-2 xl:gap-2.5">
+          <span key={lng} className="flex items-center gap-1 sm:gap-2 xl:gap-2.5">
             {i > 0 && <span aria-hidden="true" className="h-3.5 w-px bg-gold/50" />}
             <button
               type="button"
@@ -61,7 +61,7 @@ export function LanguageSwitcher({ variant = 'bar', className = '' }: LanguageSw
               aria-label={t(`language.${lng}`)}
               title={t(`language.${lng}`)}
               onClick={() => setLanguage(lng)}
-              className={`group relative py-1.5 text-[0.75rem] font-bold uppercase tracking-[0.2em] transition-colors duration-300 ${
+              className={`group relative px-1 py-2.5 text-[0.75rem] font-bold uppercase tracking-[0.12em] transition-colors duration-300 sm:py-1.5 sm:tracking-[0.2em] ${
                 isActive ? 'text-saffron' : 'text-cream/65 hover:text-saffron'
               }`}
             >

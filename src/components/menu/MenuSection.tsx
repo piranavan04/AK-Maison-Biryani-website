@@ -1,17 +1,21 @@
 import { ArrowUp } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
-import { MENU } from '../../data/menu'
+import { MENU, type MenuDish } from '../../data/menu'
+import { useLoc } from '../../i18n/useLoc'
+import { scrollToElement } from '../../lib/scroll'
 import { Lightbox, type LightboxItem } from '../Lightbox'
 import { Eyebrow, Ornament } from '../Ornament'
 import { Reveal } from '../Reveal'
 import { DietMark } from './DietMark'
 import { MenuDishCard } from './MenuDishCard'
+import { MenuDishRow } from './MenuDishRow'
 import { MenuTabs, type MenuTab } from './MenuTabs'
 
 const ALL = 'all'
 const sectionId = (categoryId: string) => `menu-${categoryId}`
-const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+type PhotoDish = MenuDish & { photo: NonNullable<MenuDish['photo']> }
+const hasPhoto = (d: MenuDish): d is PhotoDish => d.photo !== undefined
 
 /**
  * The full restaurant menu: a short introduction, a sticky category bar, then every category
@@ -19,6 +23,7 @@ const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: r
  */
 export function MenuSection() {
   const { t } = useTranslation()
+  const { loc } = useLoc()
   const tabsRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(ALL)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -35,21 +40,22 @@ export function MenuSection() {
   )
 
   // Every dish photo, in menu order, for the lightbox.
-  const { photos, startIndex } = useMemo(() => {
+  const { photos, photoIndex } = useMemo(() => {
     const photos: LightboxItem[] = []
-    const startIndex: Record<string, number> = {}
+    const photoIndex: Record<string, number> = {}
     for (const category of MENU) {
-      startIndex[category.id] = photos.length
-      for (const dish of category.dishes) {
+      for (const dish of category.dishes.filter(hasPhoto)) {
+        photoIndex[dish.id] = photos.length
         photos.push({
           id: dish.id,
           photo: dish.photo,
-          caption: t(`menu.dishes.${dish.id}.name`),
-          detail: t(`menu.dishes.${dish.id}.description`),
+          caption: loc(dish.name),
+          detail: dish.description ? loc(dish.description) : undefined,
         })
       }
     }
-    return { photos, startIndex }
+    return { photos, photoIndex }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [t])
 
   // Track the fixed header's height (it shrinks after scrolling) and the tab bar's height.
@@ -96,15 +102,13 @@ export function MenuSection() {
     (id: string) => {
       const target = document.getElementById(id === ALL ? 'menu' : sectionId(id))
       if (!target) return
-      const gap = id === ALL ? 0 : offsets.tabs + 24
-      const top = target.getBoundingClientRect().top + window.scrollY - offsets.header - gap
-      const smooth = !prefersReducedMotion()
       // Hold the clicked tab while the page glides past other categories.
-      lockUntil.current = Date.now() + (smooth ? 1100 : 0)
+      lockUntil.current = Date.now() + (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1300)
       setActive(id)
-      window.scrollTo({ top, behavior: smooth ? 'smooth' : 'auto' })
+      // Below the site header, and (for a category) below this section's sticky tab bar too.
+      scrollToElement(target, id === ALL ? {} : { extra: tabsRef.current?.offsetHeight ?? 0, gap: 24 })
     },
-    [offsets],
+    [],
   )
 
   const closeLightbox = useCallback(() => setOpenIndex(null), [])
@@ -188,13 +192,32 @@ export function MenuSection() {
               </p>
             </Reveal>
 
-            <ul className="mt-9 grid grid-cols-2 gap-x-3.5 gap-y-9 sm:mt-12 sm:gap-x-6 sm:gap-y-12 lg:col-span-8 lg:mt-0 lg:gap-x-8 lg:gap-y-14">
-              {category.dishes.map((dish, di) => (
-                <Reveal as="li" key={dish.id} delay={(di % 2) * 110} threshold={0.15}>
-                  <MenuDishCard dish={dish} onOpen={() => setOpenIndex(startIndex[category.id] + di)} />
-                </Reveal>
-              ))}
-            </ul>
+            <div className="mt-9 sm:mt-12 lg:col-span-8 lg:mt-0">
+              {category.dishes.some(hasPhoto) && (
+                <ul className="grid grid-cols-2 gap-x-3.5 gap-y-9 sm:gap-x-6 sm:gap-y-12 lg:gap-x-8 lg:gap-y-14">
+                  {category.dishes.filter(hasPhoto).map((dish, di) => (
+                    <Reveal as="li" key={dish.id} delay={(di % 2) * 110} threshold={0.15}>
+                      <MenuDishCard dish={dish} onOpen={() => setOpenIndex(photoIndex[dish.id])} />
+                    </Reveal>
+                  ))}
+                </ul>
+              )}
+              {category.dishes.some((d) => !hasPhoto(d)) && (
+                <ul
+                  className={`grid gap-x-12 gap-y-6 sm:grid-cols-2 sm:gap-y-7 ${
+                    category.dishes.some(hasPhoto) ? 'mt-12 border-t border-gold/20 pt-10 sm:mt-16 sm:pt-12' : ''
+                  }`}
+                >
+                  {category.dishes
+                    .filter((d) => !hasPhoto(d))
+                    .map((dish) => (
+                      <Reveal as="li" key={dish.id} threshold={0.1}>
+                        <MenuDishRow dish={dish} />
+                      </Reveal>
+                    ))}
+                </ul>
+              )}
+            </div>
           </section>
         ))}
 

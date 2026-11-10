@@ -1,8 +1,10 @@
 import { Expand, Flame, Sparkles, Users } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import type { DishTag, MenuDish } from '../../data/menu'
+import { useLoc } from '../../i18n/useLoc'
 import { FoodImage } from '../FoodImage'
 import { DietMark } from './DietMark'
+import { Price } from './Price'
 
 // Label text: menu.tags.<tag> in the translation files.
 const TAGS: Record<DishTag, { icon: typeof Flame; className: string }> = {
@@ -12,7 +14,8 @@ const TAGS: Record<DishTag, { icon: typeof Flame; className: string }> = {
 }
 
 interface MenuDishCardProps {
-  dish: MenuDish
+  /** A dish that has a photograph. */
+  dish: MenuDish & { photo: NonNullable<MenuDish['photo']> }
   onOpen: () => void
 }
 
@@ -23,7 +26,8 @@ interface MenuDishCardProps {
  */
 export function MenuDishCard({ dish, onOpen }: MenuDishCardProps) {
   const { t } = useTranslation()
-  const name = t(`menu.dishes.${dish.id}.name`)
+  const { loc } = useLoc()
+  const name = loc(dish.name)
   return (
     <article className="group">
       <button
@@ -38,7 +42,7 @@ export function MenuDishCard({ dish, onOpen }: MenuDishCardProps) {
           width={dish.photo.width}
           height={dish.photo.height}
           position={dish.photo.position}
-          alt={t(dish.photo.altKey)}
+          alt={t('menu.photoAltNamed', { name })}
           label={name}
           sizes="(min-width: 1280px) 25rem, (min-width: 1024px) 31vw, 46vw"
           className="size-full transition-transform duration-[900ms] ease-[var(--ease-royal)] group-hover:scale-[1.07]"
@@ -95,19 +99,17 @@ export function MenuDishCard({ dish, onOpen }: MenuDishCardProps) {
               {name}
             </h4>
           </div>
-          {dish.price && (
-            <span className="shrink-0 font-display text-base font-semibold text-saffron sm:text-xl">
-              {dish.price}
-            </span>
-          )}
+          <Price dish={dish} className="font-display text-base font-semibold text-saffron sm:text-xl" />
         </div>
         <span
           aria-hidden="true"
           className="mt-2.5 block h-px w-8 bg-gold/80 transition-[width] duration-500 ease-[var(--ease-royal)] group-hover:w-16 sm:mt-3"
         />
-        <p className="mt-2.5 line-clamp-3 text-[0.8rem] leading-relaxed text-cream/70 sm:mt-3 sm:line-clamp-none sm:text-[0.95rem]">
-          {t(`menu.dishes.${dish.id}.description`)}
-        </p>
+        {dish.description && (
+          <p className="mt-2.5 line-clamp-4 text-[0.8rem] leading-relaxed text-cream/70 sm:mt-3 sm:line-clamp-none sm:text-[0.95rem]">
+            {loc(dish.description)}
+          </p>
+        )}
       </div>
     </article>
   )

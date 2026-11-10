@@ -1,7 +1,8 @@
 /**
  * Bilingual support (English / Canadian French).
  *
- * - English is the default on a first visit. The browser language is never used to pick French.
+ * - French is the default on a first visit (the restaurant is in Montréal). The browser language
+ *   is not used to pick the language.
  * - A language the visitor chooses is saved in localStorage and restored on later visits.
  * - Both translation files are bundled, so the saved language is ready before the first render:
  *   no loading screen and no flash of the other language.
@@ -17,7 +18,7 @@ import fr from './locales/fr/translation.json'
 
 export const LANGUAGES = ['en', 'fr'] as const
 export type Language = (typeof LANGUAGES)[number]
-export const DEFAULT_LANGUAGE: Language = 'en'
+export const DEFAULT_LANGUAGE: Language = 'fr'
 
 const STORAGE_KEY = 'akmb-language'
 const HTML_LANG: Record<Language, string> = { en: 'en', fr: 'fr-CA' }

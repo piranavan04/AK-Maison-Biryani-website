@@ -52,12 +52,12 @@ export function Navbar() {
     >
       <nav
         aria-label={t('common.primaryNav')}
-        className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-[padding] duration-500 sm:px-8 ${
+        className={`mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 min-[400px]:px-5 transition-[padding] duration-500 sm:px-8 ${
           scrolled ? 'py-2.5' : 'py-4 lg:py-5'
         }`}
       >
         <a href="#home" aria-label={t('common.logoHome')} onClick={() => setOpen(false)}>
-          <Logo />
+          <Logo className="h-9 min-[380px]:h-11 min-[420px]:h-12 sm:h-14" />
         </a>
 
         <ul
@@ -81,8 +81,8 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center gap-3">
-          <LanguageSwitcher className="hidden sm:flex xl:mr-1" />
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <LanguageSwitcher className="flex xl:mr-1" />
           <a
             href={SITE.phoneHref}
             className="btn-gold hidden items-center gap-2 rounded-full bg-saffron px-6 py-2.5 lg:px-5 xl:px-6 text-[0.8rem] font-bold uppercase tracking-[0.18em] text-wine transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold sm:inline-flex"
@@ -150,14 +150,6 @@ export function Navbar() {
                 <Phone className="size-4" aria-hidden="true" />
                 {t('common.orderNowPhone', { phone: SITE.phoneDisplay })}
               </a>
-            </li>
-            <li
-              style={{ transitionDelay: open ? '600ms' : '0ms' }}
-              className={`pt-4 transition-[opacity,transform] duration-500 ${
-                open ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-              }`}
-            >
-              <LanguageSwitcher variant="menu" />
             </li>
           </ul>
         </div>

@@ -5,8 +5,7 @@ export const SITE = {
   addressLines: ['431 Boul. Henri Bourassa East', 'Montreal, Quebec, H3L 1C5'],
   phoneDisplay: '514-858-0505',
   phoneHref: 'tel:+15148580505',
-  // Grand-opening date/time wording is in the translation files (opening.*).
-  // Do not add regular opening hours until the restaurant confirms them.
+  // Do not add opening hours until the restaurant confirms them.
 } as const
 
 export const MAPS_QUERY = '431 Boul. Henri Bourassa East, Montreal, Quebec H3L 1C5'

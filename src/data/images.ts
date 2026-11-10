@@ -4,7 +4,8 @@
 
 export interface Photo {
   src: string
-  srcSet: string
+  /** Optional: responsive sources (not every photo has several sizes). */
+  srcSet?: string
   width: number
   height: number
   /** Translation key for the alt text (see src/i18n/locales). */

@@ -2,6 +2,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DISHES } from '../data/dishes'
+import { useLoc } from '../i18n/useLoc'
+import { DietMark } from './menu/DietMark'
+import { Price } from './menu/Price'
 import { Eyebrow, Ornament } from './Ornament'
 import { FoodImage } from './FoodImage'
 import { Reveal } from './Reveal'
@@ -13,6 +16,7 @@ const RESUME_AFTER_MS = 6000
 
 export function Dishes() {
   const { t } = useTranslation()
+  const { loc } = useLoc()
   const trackRef = useRef<HTMLUListElement>(null)
   const [active, setActive] = useState(0)
   /** Number of distinct scroll positions (cards minus those already visible, plus one). */
@@ -178,10 +182,10 @@ export function Dishes() {
           onBlur={() => (focused.current = false)}
           className="dish-track -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-4 [scrollbar-width:none] sm:mx-0 sm:mt-16 sm:gap-6 sm:scroll-px-0 sm:px-0 lg:gap-8 [&::-webkit-scrollbar]:hidden"
         >
-          {DISHES.map((dish, i) => (
+          {DISHES.map(({ id, category, dish, photo }, i) => (
             <Reveal
               as="li"
-              key={dish.id}
+              key={id}
               delay={(i % 3) * 110}
               threshold={0.01}
               className="w-[78%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)]"
@@ -190,13 +194,13 @@ export function Dishes() {
                 <div className="relative aspect-[4/5] overflow-hidden border border-gold/40 bg-wine p-2.5 transition-colors duration-500 group-hover:border-saffron">
                   <div className="relative size-full overflow-hidden">
                     <FoodImage
-                      src={dish.photo.src}
-                      srcSet={dish.photo.srcSet}
-                      width={dish.photo.width}
-                      height={dish.photo.height}
-                      position={dish.photo.position}
-                      alt={t(dish.photo.altKey)}
-                      label={t(`signature.dishes.${dish.id}.name`)}
+                      src={photo.src}
+                      srcSet={photo.srcSet}
+                      width={photo.width}
+                      height={photo.height}
+                      position={photo.position}
+                      alt={t('menu.photoAltNamed', { name: loc(dish.name) })}
+                      label={loc(dish.name)}
                       preload={nearby}
                       sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 78vw"
                       className="size-full transition-transform duration-[1400ms] ease-[var(--ease-royal)] group-hover:scale-110"
@@ -215,23 +219,22 @@ export function Dishes() {
                 </div>
                 <div className="pt-6">
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-gold">
-                    {t(`signature.categories.${dish.category}`)}
+                    {t(`signature.categories.${category}`)}
                   </p>
                   <div className="mt-2 flex items-baseline justify-between gap-4">
-                    <h3 className="font-display text-2xl font-semibold leading-tight text-cream transition-colors duration-300 group-hover:text-saffron sm:text-[1.7rem]">
-                      {t(`signature.dishes.${dish.id}.name`)}
+                    <h3 className="flex min-w-0 items-baseline gap-2.5 font-display text-2xl font-semibold leading-tight text-cream transition-colors duration-300 group-hover:text-saffron sm:text-[1.7rem]">
+                      <DietMark diet={dish.diet} className="self-center" />
+                      {loc(dish.name)}
                     </h3>
-                    {dish.price && (
-                      <span className="shrink-0 font-display text-xl font-semibold text-saffron">
-                        {dish.price}
-                      </span>
-                    )}
+                    <Price dish={dish} className="font-display text-xl font-semibold text-saffron" />
                   </div>
                   <span
                     aria-hidden="true"
                     className="mt-3 block h-px w-12 bg-gold transition-[width] duration-500 ease-[var(--ease-royal)] group-hover:w-24"
                   />
-                  <p className="mt-4 text-[0.95rem] leading-relaxed text-cream/75">{t(`signature.dishes.${dish.id}.description`)}</p>
+                  <p className="mt-4 text-[0.95rem] leading-relaxed text-cream/75">
+                    {dish.description ? loc(dish.description) : t(`signature.blurbs.${category}`)}
+                  </p>
                 </div>
               </article>
             </Reveal>

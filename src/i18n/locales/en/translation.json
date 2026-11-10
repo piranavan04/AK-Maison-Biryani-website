@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "AK Maison Biryani | South Indian Cuisine in Montreal",
-    "description": "AK Maison Biryani, authentic South Indian cuisine at 431 Boul. Henri Bourassa East, Montreal. Grand Opening November 11, 2026 at 11 AM."
+    "description": "AK Maison Biryani, authentic Indian cuisine at 431 Boul. Henri Bourassa East, Montreal. Biryani, tandoori, dosa and kottu roti."
   },
   "common": {
     "skipToMenu": "Skip to menu",
@@ -29,14 +29,6 @@
     "gallery": "Gallery",
     "contact": "Contact"
   },
-  "opening": {
-    "title": "Grand Opening",
-    "date": "November 11, 2026",
-    "time": "11 AM",
-    "sealDay": "Nov 11",
-    "sealYearTime": "2026 · {{time}}",
-    "dateTime": "{{date}} at {{time}}"
-  },
   "hero": {
     "eyebrow": "Authentic South Indian Cuisine",
     "titleLead": "Where Royal Flavours Meet",
@@ -44,7 +36,10 @@
     "intro": "Discover the rich aromas, authentic spices, and unforgettable flavours of South Indian cuisine at AK Maison Biryani.",
     "ctaMenu": "Explore Our Menu",
     "ctaVisit": "Visit Our Restaurant",
-    "photoLabel": "Chicken Biryani"
+    "photoLabel": "Chicken Biryani",
+    "sealTop": "Montréal",
+    "sealMark": "AK",
+    "sealBottom": "Indian Cuisine"
   },
   "story": {
     "eyebrow": "Our Story",
@@ -65,47 +60,14 @@
     "showDish": "Show dish {{number}}",
     "swipe": "Swipe to explore",
     "categories": {
-      "Biryani": "Biryani",
-      "South Indian": "South Indian",
-      "Non-Veg Specials": "Non-Veg Specials"
+      "biryani": "Biryani",
+      "dosa": "Dosa",
+      "kottu": "Kottu Roti"
     },
-    "dishes": {
-      "chicken-dum-biryani": {
-        "name": "Chicken Dum Biryani",
-        "description": "Long-grain basmati and spiced chicken sealed in the pot and slow-cooked on dum, so every grain carries the aroma."
-      },
-      "mutton-biryani": {
-        "name": "Mutton Biryani",
-        "description": "Tender bone-in mutton folded through saffron rice, mint and crisp onions. A dish made for sharing and savouring."
-      },
-      "masala-dosa": {
-        "name": "Crispy Masala Dosa",
-        "description": "A golden, paper-crisp dosa wrapped around spiced potato masala, served with sambar and fresh chutneys."
-      },
-      "idli-sambar": {
-        "name": "Idli and Sambar",
-        "description": "Soft, steamed rice cakes with coconut chutney and a warm, tangy lentil sambar. A South Indian morning classic."
-      },
-      "tandoori-chicken": {
-        "name": "Tandoori Chicken",
-        "description": "Marinated in yoghurt and bold spices, then fired until smoky, charred at the edges and juicy within."
-      },
-      "chicken-65": {
-        "name": "Chicken 65",
-        "description": "Fiery, crisp-fried chicken tossed with curry leaves, green chilli and garlic. The perfect starter."
-      },
-      "chicken-curry": {
-        "name": "Traditional Chicken Curry",
-        "description": "A home-style gravy of roasted spices and onions, simmered slowly and made to be mopped up to the last drop."
-      },
-      "mutton-curry": {
-        "name": "Mutton Curry",
-        "description": "Slow-cooked mutton in a deep, peppery masala, rich with whole spices and finished with fresh coriander."
-      },
-      "south-indian-thali": {
-        "name": "South Indian Thali",
-        "description": "A generous spread of rice, curries, poriyal and accompaniments, the way a South Indian table is meant to be enjoyed."
-      }
+    "blurbs": {
+      "biryani": "Fragrant rice layered with authentic spices and rich flavours.",
+      "dosa": "Rice flour pancakes, served with sambar and chutney.",
+      "kottu": "Chopped roti stir-fried with your choice of protein."
     }
   },
   "menu": {
@@ -129,224 +91,86 @@
       "sharing": "For Sharing"
     },
     "categories": {
-      "biryani": {
-        "name": "Signature Biryani",
-        "tab": "Biryani",
-        "description": "Discover the irresistible aroma of traditional biryani, layered with fragrant rice, authentic spices and rich flavours."
+      "appetizers": {
+        "name": "Appetizers",
+        "tab": "Appetizers",
+        "description": "Crispy samosas, pakoras and chaats, plus soups and street-food favourites to begin the meal."
+      },
+      "biryani-rice": {
+        "name": "Biryani & Rice",
+        "tab": "Biryani & Rice",
+        "description": "Fragrant biryani layered with rice and authentic spices, alongside fried rice and classic steamed rices."
       },
       "chicken": {
-        "name": "Chicken Specials",
+        "name": "Chicken",
         "tab": "Chicken",
-        "description": "A delicious collection of chicken specialities prepared with traditional Indian spices and bold flavours."
+        "description": "Tender chicken in creamy, tangy and richly spiced sauces, from butter chicken to vindaloo."
       },
-      "mutton": {
-        "name": "Mutton Specials",
-        "tab": "Mutton",
-        "description": "Experience rich, slow-cooked mutton delicacies filled with authentic South Indian flavours."
+      "lamb": {
+        "name": "Lamb",
+        "tab": "Lamb",
+        "description": "Lamb curries, plus mutton curry and beef deviled, in rich and deeply spiced sauces."
       },
-      "south-indian": {
-        "name": "South Indian Favourites",
-        "tab": "South Indian",
-        "description": "Celebrate the timeless taste of South India with our traditional favourites."
+      "vegetables": {
+        "name": "Vegetables",
+        "tab": "Vegetables",
+        "description": "Vegetarian curries, paneer dishes, lentils and chickpeas, cooked the Indian way."
       },
-      "vegetarian": {
-        "name": "Vegetarian Delights",
-        "tab": "Vegetarian",
-        "description": "Comforting vegetarian curries and dals, slow-cooked with whole spices and fresh herbs."
+      "seafood": {
+        "name": "Seafood",
+        "tab": "Seafood",
+        "description": "Shrimp prepared in creamy, spinach and curry sauces."
       },
-      "starters": {
-        "name": "Starters and Sides",
-        "tab": "Starters",
-        "description": "Crisp, spiced bites to begin the meal, and breads to share alongside every curry."
+      "tandoori": {
+        "name": "Tandoori",
+        "tab": "Tandoori",
+        "description": "Marinated in yogurt and spices, then roasted in the clay oven."
       },
-      "beverages": {
-        "name": "Beverages",
-        "tab": "Beverages",
-        "description": "Traditional brews and cooling drinks to round off your meal."
+      "dosa": {
+        "name": "Dosa",
+        "tab": "Dosa",
+        "description": "Rice flour pancakes, served with sambar and chutney."
+      },
+      "kottu-roti": {
+        "name": "Kottu Roti",
+        "tab": "Kottu Roti",
+        "description": "Chopped roti stir-fried with chicken, shrimp, mutton, beef or cuttlefish."
+      },
+      "breads": {
+        "name": "Breads",
+        "tab": "Breads",
+        "description": "Naan and paratha to go with every curry."
+      },
+      "naan-roll": {
+        "name": "Naan Rolls",
+        "tab": "Naan Rolls",
+        "description": "Naan wrapped around paneer, chicken tikka or lamb kabab."
+      },
+      "sides": {
+        "name": "Side Orders",
+        "tab": "Sides",
+        "description": "Raita, salad, chutneys and pickles on the side."
+      },
+      "drinks": {
+        "name": "Drinks",
+        "tab": "Drinks",
+        "description": "Lassis, water and soft drinks."
+      },
+      "desserts": {
+        "name": "Desserts",
+        "tab": "Desserts",
+        "description": "Traditional Indian sweets to finish the meal."
+      },
+      "thali": {
+        "name": "Thali",
+        "tab": "Thali",
+        "description": "A complete tray with the curry of your choice, with lunch and dinner prices."
       }
     },
-    "dishes": {
-      "chicken-dum-biryani": {
-        "name": "Chicken Dum Biryani",
-        "description": "Spiced chicken and long-grain basmati sealed in the pot and slow-cooked on dum.",
-        "alt": "Chicken dum biryani in a brass handi with a golden spoon"
-      },
-      "mutton-biryani": {
-        "name": "Mutton Biryani",
-        "description": "Tender mutton folded through fragrant rice with fried onions, mint and whole spices.",
-        "alt": "Mutton biryani on a white plate with a wedge of lime"
-      },
-      "egg-biryani": {
-        "name": "Egg Biryani",
-        "description": "Saffron-streaked rice layered with masala-coated boiled eggs, served with raita.",
-        "alt": "Egg biryani with onion rings and mint, served with raita"
-      },
-      "vegetable-biryani": {
-        "name": "Vegetable Biryani",
-        "description": "Seasonal vegetables and basmati cooked together with mint, coriander and crisp onions.",
-        "alt": "Vegetable biryani with fried onions and fresh herbs"
-      },
-      "chicken-leg-biryani": {
-        "name": "Chicken Leg Piece Biryani",
-        "description": "A whole masala-marinated chicken leg buried in spiced biryani rice.",
-        "alt": "Biryani topped with a chicken leg piece, with salan and raita"
-      },
-      "biryani-family-platter": {
-        "name": "Biryani Family Platter",
-        "description": "A generous sharing platter of biryani with eggs and fresh accompaniments for the whole table.",
-        "alt": "A large biryani platter with eggs and cucumber on a red cloth"
-      },
-      "butter-chicken": {
-        "name": "Butter Chicken",
-        "description": "Tandoor-charred chicken in a smooth tomato, butter and cream gravy.",
-        "alt": "Butter chicken finished with a swirl of cream"
-      },
-      "chicken-tikka-masala": {
-        "name": "Chicken Tikka Masala",
-        "description": "Grilled chicken tikka simmered in a rich, gently spiced masala, best with naan.",
-        "alt": "Chicken tikka masala with mint and fresh naan"
-      },
-      "home-style-chicken-curry": {
-        "name": "Home-Style Chicken Curry",
-        "description": "Bone-in chicken slow-cooked in an onion, tomato and roasted-spice gravy.",
-        "alt": "Home-style chicken curry with bone-in pieces"
-      },
-      "chicken-karahi": {
-        "name": "Chicken Karahi",
-        "description": "Chicken tossed in a hot karahi with tomatoes, ginger, green chilli and coriander.",
-        "alt": "Chicken karahi in a black wok with ginger and lime"
-      },
-      "tandoori-chicken": {
-        "name": "Tandoori Chicken",
-        "description": "Yoghurt-and-spice marinated chicken, roasted until smoky and charred.",
-        "alt": "Tandoori chicken with lemon slices and red onion"
-      },
-      "chicken-tikka": {
-        "name": "Chicken Tikka",
-        "description": "Boneless chicken grilled on skewers with peppers and onions.",
-        "alt": "Chicken tikka pieces grilled with peppers and onions"
-      },
-      "mutton-masala": {
-        "name": "Mutton Masala",
-        "description": "Mutton cooked low and slow in a thick masala and finished with fresh coriander.",
-        "alt": "Mutton masala in a pan, topped with coriander"
-      },
-      "mutton-kuzhambu": {
-        "name": "Mutton Kuzhambu",
-        "description": "A South Indian mutton gravy with curry leaves, black pepper and whole spices.",
-        "alt": "Mutton kuzhambu with curry leaves, cinnamon and cardamom"
-      },
-      "mutton-nalli-nihari": {
-        "name": "Mutton Nalli Nihari",
-        "description": "Bone-marrow mutton shanks braised overnight into a silky, spiced stew.",
-        "alt": "Mutton nalli nihari with a marrow bone in a copper pot"
-      },
-      "mutton-sukka": {
-        "name": "Mutton Sukka",
-        "description": "Dry-roasted mutton with pepper, coconut and curry leaves.",
-        "alt": "Dry mutton sukka in a small karahi with lemon"
-      },
-      "masala-dosa": {
-        "name": "Masala Dosa",
-        "description": "A crisp golden dosa filled with spiced potato masala, with sambar and chutneys.",
-        "alt": "Masala dosa on a banana leaf with sambar and chutneys"
-      },
-      "plain-dosa": {
-        "name": "Plain Dosa",
-        "description": "A thin, paper-crisp rice and lentil crêpe served with sambar and chutney.",
-        "alt": "Rolled plain dosa with sambar and coconut chutney"
-      },
-      "rava-dosa": {
-        "name": "Rava Dosa",
-        "description": "A lacy semolina dosa with cumin and pepper, crisp at the edges.",
-        "alt": "Lacy rava dosa on a steel tray with three accompaniments"
-      },
-      "idli-sambar": {
-        "name": "Idli and Sambar",
-        "description": "Soft steamed rice cakes with a warm lentil sambar.",
-        "alt": "Idli with a bowl of sambar on a floral plate"
-      },
-      "medu-vada": {
-        "name": "Medu Vada",
-        "description": "Crisp lentil doughnuts, fluffy inside, with sambar and coconut chutney.",
-        "alt": "Medu vada with sambar, chutney and coffee"
-      },
-      "podi-idli": {
-        "name": "Podi Idli",
-        "description": "Idli dusted with spiced gunpowder podi and a drizzle of ghee.",
-        "alt": "Idli topped with podi on a banana leaf"
-      },
-      "paneer-butter-masala": {
-        "name": "Paneer Butter Masala",
-        "description": "Soft paneer in a velvety tomato and butter gravy finished with cream.",
-        "alt": "Paneer butter masala in a brass bowl"
-      },
-      "dal-tadka": {
-        "name": "Dal Tadka",
-        "description": "Yellow lentils tempered with ghee, cumin, garlic and green chilli.",
-        "alt": "Dal tadka with green chilli, onion rings and lemon"
-      },
-      "chana-bhatura": {
-        "name": "Chana Masala with Bhatura",
-        "description": "Spiced chickpea curry served with puffed, golden bhatura.",
-        "alt": "Chana masala with golden bhatura"
-      },
-      "aloo-mattar": {
-        "name": "Aloo Mattar",
-        "description": "Potatoes and green peas in a home-style tomato and onion gravy.",
-        "alt": "Aloo mattar curry with potatoes and peas"
-      },
-      "masala-vada": {
-        "name": "Masala Vada",
-        "description": "Crunchy chana-dal fritters with onion, curry leaves and green chilli.",
-        "alt": "A stack of masala vada on a banana leaf"
-      },
-      "vegetable-samosa": {
-        "name": "Vegetable Samosa",
-        "description": "Flaky pastry filled with spiced potato and peas, with green chutney.",
-        "alt": "Vegetable samosas with green chilli and chutney"
-      },
-      "onion-pakoda": {
-        "name": "Onion Pakoda",
-        "description": "Gram-flour fritters with onion and coriander, fried until golden.",
-        "alt": "Golden onion pakoda with a wedge of lime"
-      },
-      "chicken-pakoda": {
-        "name": "Chicken Pakoda",
-        "description": "Spiced chicken pieces coated in gram-flour batter and fried crisp.",
-        "alt": "Crisp fried chicken pakoda"
-      },
-      "malabar-parotta": {
-        "name": "Malabar Parotta",
-        "description": "Flaky, layered flatbread made to tear and dip into every curry.",
-        "alt": "Layered Malabar parotta with curry leaves and chillies"
-      },
-      "butter-naan": {
-        "name": "Butter Naan",
-        "description": "Soft, leavened bread from the tandoor, brushed with butter.",
-        "alt": "A stack of charred butter naan on a board"
-      },
-      "filter-coffee": {
-        "name": "Filter Coffee",
-        "description": "Slow-dripped coffee decoction with hot frothed milk.",
-        "alt": "Coffee decoction dripping through a filter"
-      },
-      "masala-chai": {
-        "name": "Masala Chai",
-        "description": "Black tea simmered with milk, ginger and cardamom, poured into clay cups.",
-        "alt": "Masala chai being poured into clay kulhad cups"
-      },
-      "mango-lassi": {
-        "name": "Mango Lassi",
-        "description": "Chilled yoghurt blended with ripe mango.",
-        "alt": "Mango lassi in a tall glass with fresh mangoes"
-      },
-      "rose-lassi": {
-        "name": "Rose Lassi",
-        "description": "Creamy yoghurt with rose syrup, served cold in a clay cup.",
-        "alt": "Rose lassi topped with rose petals in a clay cup"
-      }
-    }
+    "photoAlt": "Photograph of a dish from the menu",
+    "photoAltNamed": "Photograph of {{name}}",
+    "priceLunch": "Lunch",
+    "priceDinner": "Dinner"
   },
   "why": {
     "eyebrow": "The AK Promise",
@@ -401,7 +225,6 @@
     "eyebrow": "Visit Us",
     "titleLead": "Bring Your Family",
     "titleAccent": "and Friends.",
-    "invited": "You are invited",
     "address": "Address",
     "phone": "Phone",
     "directions": "Get Directions",
@@ -412,7 +235,7 @@
   "footer": {
     "titleLead": "We Look Forward to",
     "titleAccent": "Welcoming You.",
-    "intro": "Questions or orders? Call us, or come and see us at our Grand Opening on {{date}}.",
+    "intro": "Questions or orders? Call us, or come and see us in Montreal.",
     "tagline": "South Indian Cuisine in Montreal, Quebec.",
     "findUs": "Find Us",
     "explore": "Explore",

@@ -89,16 +89,16 @@ export function Hero() {
               />
             </div>
 
-            {/* Grand opening seal */}
+            {/* Brand seal */}
             <div className="absolute -bottom-7 -left-4 grid size-[7.6rem] place-items-center rounded-full border border-gold bg-burgundy text-center shadow-[0_18px_40px_-14px_rgb(0_0_0/0.65)] sm:-left-8 sm:size-36 sm:-bottom-6">
               <div className="absolute inset-1.5 rounded-full border border-gold/50" aria-hidden="true" />
               <div className="relative">
-                <p className="text-[0.5rem] font-bold uppercase tracking-[0.16em] text-gold sm:text-[0.55rem] sm:tracking-[0.24em]">{t('opening.title')}</p>
-                <p className="mt-1 font-display text-2xl font-bold leading-none text-saffron sm:text-[1.7rem]">
-                  {t('opening.sealDay')}
+                <p className="text-[0.5rem] font-bold uppercase tracking-[0.16em] text-gold sm:text-[0.55rem] sm:tracking-[0.24em]">{t('hero.sealTop')}</p>
+                <p className="mt-1 font-display text-4xl font-bold italic leading-none text-saffron sm:text-5xl">
+                  {t('hero.sealMark')}
                 </p>
                 <p className="mt-1 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-cream/80 sm:tracking-[0.22em]">
-                  {t('opening.sealYearTime', { time: t('opening.time') })}
+                  {t('hero.sealBottom')}
                 </p>
               </div>
             </div>

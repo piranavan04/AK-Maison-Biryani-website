@@ -23,7 +23,7 @@ export function Contact() {
             {t('footer.titleLead')} <span className="italic text-saffron">{t('footer.titleAccent')}</span>
           </h2>
           <p className="mt-5 text-base text-cream/75 sm:text-lg">
-            {t('footer.intro', { date: t('opening.date') })}
+            {t('footer.intro')}
           </p>
         </Reveal>
 

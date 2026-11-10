@@ -1,4 +1,4 @@
-import { CalendarDays, MapPin, Navigation, Phone } from 'lucide-react'
+import { MapPin, Navigation, Phone } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { MAPS_DIRECTIONS_URL, MAPS_EMBED_URL, SITE } from '../data/site'
 import { Eyebrow, Ornament } from './Ornament'
@@ -29,30 +29,7 @@ export function Visit() {
             </h2>
           </Reveal>
 
-          {/* Grand opening invitation */}
           <Reveal delay={120}>
-            <div className="relative mt-9 border border-gold/60 p-6 sm:p-7">
-              <span
-                aria-hidden="true"
-                className="absolute -top-px left-6 -translate-y-1/2 bg-burgundy px-3 text-[0.62rem] font-bold uppercase tracking-[0.3em] text-saffron"
-              >
-                {t('visit.invited')}
-              </span>
-              <div className="flex items-start gap-4">
-                <CalendarDays className="mt-1 size-6 shrink-0 text-saffron" aria-hidden="true" />
-                <div>
-                  <p className="font-display text-3xl font-semibold leading-tight text-saffron sm:text-4xl">
-                    {t('opening.title')}
-                  </p>
-                  <p className="mt-1 text-lg text-cream sm:text-xl">
-                    {t('opening.dateTime', { date: t('opening.date'), time: t('opening.time') })}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={220}>
             <dl className="mt-9 space-y-6">
               <div className="flex gap-4">
                 <dt className="mt-1">

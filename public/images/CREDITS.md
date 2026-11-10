@@ -70,3 +70,7 @@ All photographs are stored locally as responsive WebP files (480 / 960 / 1440 px
 | `images/menu/beverages/rose-lassi-*.webp` | Jaspinder Singh | [Unsplash](https://unsplash.com/photos/a-pink-drink-with-a-straw-sticking-out-of-it-CBwoyP69nAU) | [Unsplash License](https://unsplash.com/license) |
 
 The Unsplash License allows free commercial use; attribution is given here as good practice. Unsplash+ (paid) photos were excluded.
+
+## Photographs cropped from the restaurant's menu cards
+
+`images/menu/card/*.webp` are crops of the food photographs printed on AK Maison Biryani's own menu cards (supplied by the restaurant). They are small (roughly 300-670 px wide); replace them with the original photo files when available.

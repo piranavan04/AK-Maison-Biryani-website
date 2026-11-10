@@ -1,62 +1,42 @@
-import { IMAGES, type Photo } from './images'
+import { findDish, PHOTOS, type MenuDish } from './menu'
+import type { Photo } from './images'
 
-export type DishCategory = 'Biryani' | 'South Indian' | 'Non-Veg Specials'
+/** Signature Flavours groups: translated via signature.categories.<category>. */
+export type DishCategory = 'biryani' | 'dosa' | 'kottu'
 
-export interface Dish {
-  /** Also the translation key: signature.dishes.<id>.name / .description */
+export interface SignatureDish {
   id: string
-  /** Translated via signature.categories.<category> */
   category: DishCategory
+  /** The real dish from the menu: name, price and description always match the Menu section. */
+  dish: MenuDish
   photo: Photo
-  /** Optional. Leave undefined until prices are confirmed; the card hides it. */
-  price?: string
 }
 
-// Every dish has its own photograph; none of these are reused in the hero, story or gallery.
-export const DISHES: Dish[] = [
-  {
-    id: 'chicken-dum-biryani',
-    category: 'Biryani',
-    photo: IMAGES.chickenDum,
-  },
-  {
-    id: 'mutton-biryani',
-    category: 'Biryani',
-    photo: IMAGES.muttonBiryani,
-  },
-  {
-    id: 'masala-dosa',
-    category: 'South Indian',
-    photo: IMAGES.masalaDosa,
-  },
-  {
-    id: 'idli-sambar',
-    category: 'South Indian',
-    photo: IMAGES.idli,
-  },
-  {
-    id: 'tandoori-chicken',
-    category: 'Non-Veg Specials',
-    photo: IMAGES.tandoori,
-  },
-  {
-    id: 'chicken-65',
-    category: 'Non-Veg Specials',
-    photo: IMAGES.chicken65,
-  },
-  {
-    id: 'chicken-curry',
-    category: 'Non-Veg Specials',
-    photo: IMAGES.chickenCurry,
-  },
-  {
-    id: 'mutton-curry',
-    category: 'Non-Veg Specials',
-    photo: IMAGES.muttonCurry,
-  },
-  {
-    id: 'south-indian-thali',
-    category: 'South Indian',
-    photo: IMAGES.thali,
-  },
+const pick = (id: string, category: DishCategory, photo: Photo): SignatureDish => ({
+  id,
+  category,
+  dish: findDish(id),
+  photo,
+})
+
+// Every biryani, dosa and kottu roti on the menu, with its menu price.
+// Where the kitchen has no photograph of a specific variety yet, a photograph of the same
+// family of dish is used (and several Kottu cards show different framings of the same plate).
+export const DISHES: SignatureDish[] = [
+  pick('veg-biryani', 'biryani', PHOTOS.vegBiryani),
+  pick('chicken-biryani', 'biryani', PHOTOS.chickenBiryani),
+  pick('lamb-biryani', 'biryani', PHOTOS.biryaniCard),
+  pick('goat-biryani', 'biryani', PHOTOS.goatBiryani),
+  pick('shrimp-biryani', 'biryani', PHOTOS.biryaniPlatter),
+  pick('plain-dosa', 'dosa', PHOTOS.plainDosa),
+  pick('ghee-dosa', 'dosa', PHOTOS.gheeDosa),
+  pick('masala-dosa', 'dosa', PHOTOS.masalaDosa),
+  pick('paneer-dosa', 'dosa', PHOTOS.masalaDosaCard),
+  pick('chicken-dosa', 'dosa', PHOTOS.coneDosa),
+  pick('egg-dosa', 'dosa', PHOTOS.ravaDosa),
+  pick('chicken-kottu', 'kottu', { ...PHOTOS.kottu, position: '50% 50%' }),
+  pick('shrimp-kottu', 'kottu', { ...PHOTOS.kottu, position: '85% 50%' }),
+  pick('mutton-kottu', 'kottu', { ...PHOTOS.kottu, position: '15% 50%' }),
+  pick('beef-kottu', 'kottu', { ...PHOTOS.kottu, position: '68% 50%' }),
+  pick('cuttlefish-kottu', 'kottu', { ...PHOTOS.kottu, position: '32% 50%' }),
 ]

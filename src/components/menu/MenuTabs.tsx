@@ -20,6 +20,7 @@ export function MenuTabs({ tabs, active, onSelect }: MenuTabsProps) {
   const { t } = useTranslation()
   const rowRef = useRef<HTMLDivElement>(null)
   const [pill, setPill] = useState<{ x: number; w: number } | null>(null)
+  const placed = useRef(false)
 
   useLayoutEffect(() => {
     const row = rowRef.current
@@ -30,7 +31,10 @@ export function MenuTabs({ tabs, active, onSelect }: MenuTabsProps) {
       setPill({ x: el.offsetLeft, w: el.offsetWidth })
       // Keep the active tab visible inside the scrollable row (never scrolls the page).
       const target = el.offsetLeft - (row.clientWidth - el.offsetWidth) / 2
-      row.scrollTo({ left: Math.max(0, target), behavior: 'smooth' })
+      // First placement is instant so the bar always opens at the right spot (never a stale offset).
+      const max = row.scrollWidth - row.clientWidth
+      row.scrollTo({ left: Math.min(Math.max(0, target), Math.max(0, max)), behavior: placed.current ? 'smooth' : 'instant' })
+      placed.current = true
     }
     place()
     const resize = new ResizeObserver(place)
@@ -42,7 +46,7 @@ export function MenuTabs({ tabs, active, onSelect }: MenuTabsProps) {
     <nav aria-label={t('menu.tabsLabel')} className="relative">
       <div
         ref={rowRef}
-        className="menu-tabs relative flex gap-1 overflow-x-auto px-5 py-3 [scrollbar-width:none] sm:px-8 lg:justify-center [&::-webkit-scrollbar]:hidden"
+        className="menu-tabs relative flex gap-1 overflow-x-auto overflow-y-hidden overscroll-x-contain px-5 py-3 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden"
       >
         {pill && (
           <span
@@ -51,7 +55,7 @@ export function MenuTabs({ tabs, active, onSelect }: MenuTabsProps) {
             style={{ width: pill.w, transform: `translateX(${pill.x}px)`, left: 0 }}
           />
         )}
-        {tabs.map((tab) => {
+        {tabs.map((tab, i) => {
           const isActive = tab.id === active
           return (
             <button
@@ -60,7 +64,7 @@ export function MenuTabs({ tabs, active, onSelect }: MenuTabsProps) {
               data-tab={tab.id}
               onClick={() => onSelect(tab.id)}
               aria-current={isActive ? 'true' : undefined}
-              className={`relative z-10 h-10 shrink-0 whitespace-nowrap rounded-full px-4 text-[0.72rem] font-bold uppercase tracking-[0.18em] transition-colors duration-300 sm:px-5 sm:text-xs ${
+              className={`relative z-10 h-10 shrink-0 ${i === 0 ? 'ml-auto' : ''} ${i === tabs.length - 1 ? 'mr-auto' : ''} whitespace-nowrap rounded-full px-4 text-[0.72rem] font-bold uppercase tracking-[0.18em] transition-colors duration-300 sm:px-5 sm:text-xs ${
                 isActive ? 'text-wine' : 'text-cream/80 hover:text-saffron'
               }`}
             >
